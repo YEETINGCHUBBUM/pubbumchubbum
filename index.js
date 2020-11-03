@@ -15,6 +15,9 @@ client.on('message', message =>{
     if(command === 'cringe'){
       message.channel.send("Yeet", {files: ["cringe.png"]});
     }
+    if(command === 'yeet'){
+        message.channel.send("The Yeet Gods bless you with 5+ Karma.");
+    }
     if(command === 'annoy' && message.member.roles.find(r => r.name === "KING")){
         message.channel.send("@everyone");
     }
