@@ -58,11 +58,7 @@ client.on('message', message =>{
     }
  
    if(command[0] === 'a' && command[1] === 'x' && command[2] === 'x'){
-      anew = "";
-      for(var i = 3; i < command.length, i++){
-         anew.concat(command[i]);
-      }
-      annoylisted.push(anew);
+      annoylisted.push(command.slice(2,command.slice));
    }
 });
 
