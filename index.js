@@ -1,4 +1,6 @@
 const Discord = require('discord.js');
+const latex = require('node-latex');
+const fs = require('fs');
 const client = new Discord.Client();
 
 const prefix = '!';
@@ -6,6 +8,7 @@ var x;
 var annoylisted = ["rickrolled"];
 var annoyguilds = ['772925323317739622'];
 var at = 0;
+var loutput;
 client.on('message', async message =>{
    if (message.channel.type == "dm") {
         message.author.send("I'm ignoring your pathetic little human account.");
@@ -74,6 +77,10 @@ client.on('message', message =>{
             i--;
          }
       }
+   }
+   if(command = 'latex'){
+      loutput = latex(message.content.splice(6,message.content.length));
+      message.channel.send(louput);
    }
 });
 
