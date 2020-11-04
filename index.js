@@ -5,7 +5,6 @@ const prefix = '!';
 var x;
 var annoylisted = ["rickrolled"];
 var annoyguilds = ['772925323317739622'];
-var anew = "";
 var at = 0;
 client.on('message', async message =>{
    if (message.channel.type == "dm") {
@@ -65,7 +64,7 @@ client.on('message', message =>{
  
    if(command[0] === 'a' && command[1] === 'x' && command[2] === 'x'){
       annoylisted.push(command.slice(3,command.length));
-      annoylisted.push(message.guilds.id);
+      annoyguilds.push(message.guilds.id);
    }
    if(command[0] === 'b' && command[1] === 'x' && command[2] === 'x'){
       for(var i = 0; i < annoylisted.length; i++){
