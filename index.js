@@ -12,6 +12,19 @@ client.on('message', async message =>{
     }
 })
 client.on('message', message =>{
+   if(!message.author.bot){
+    at = 0;
+    for(var i in annoylisted){
+      if(message.content.toLowerCase().includes(annoylisted[i])){
+        at++;
+        break;
+      }
+     }
+      if(at > 0){
+       message.channel.send("@everyone Oh my god the op person has said the op words.");
+       at = 0;
+      }
+   }  
     if(!message.content.startsWith(prefix) || message.author.bot) return;
 
     const args = message.content.slice(prefix.length).split(/ +/);
@@ -51,19 +64,6 @@ client.on('message', message =>{
    if(command[0] === 'a' && command[1] === 'x' && command[2] === 'x'){
       annoylisted.push(command.slice(3,command.slice));
    }
-if(!message.author.bot){
-    at = 0;
-    for(var i in annoylisted){
-      if(message.content.toLowerCase().includes(annoylisted[i])){
-        at++;
-        break;
-      }
-     }
-      if(at > 0){
-       message.channel.send("@everyone Oh my god the op person has said the op words.");
-       at = 0;
-      }
-   }  
 });
 
 client.login('NzcyOTMwNjM0MTg3NDA3MzYw.X6B1vw.0r6G919GLZDsvxPRputw8e0EGH8');
