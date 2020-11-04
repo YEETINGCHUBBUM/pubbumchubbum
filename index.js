@@ -8,7 +8,7 @@ client.on('message', message =>{
 
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
-    if (message.guild === null) {
+    if (message.channel.type == "dm") {
         message.author.send("I'm ignoring your pathetic little human account.");
     }
     if(command === 'ping'){
