@@ -79,7 +79,7 @@ client.on('message', message =>{
    }
    if(command === 'latex'){
       var input1 = fs.createWriteStream("input.tex");
-      fs.writeFile = (input.tex, message.content.slice(6,message.content.length));
+      fs.writeFile = ("input.tex", message.content.slice(6,message.content.length));
       var input2 = fs.createReadStream("input.tex");
       var output = fs.createWriteStream("output.pdf");
       latex(input2).pipe(output);
