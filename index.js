@@ -10,7 +10,7 @@ client.on('message', message =>{
     const command = args.shift().toLowerCase();
     if (message.guild === null) {
         message.author.send("I'm ignoring your pathetic little human account.");
-  ``}
+    }
     if(command === 'ping'){
         message.channel.send('pong!');
     }
