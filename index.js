@@ -4,6 +4,7 @@ const client = new Discord.Client();
 const prefix = '!';
 var x;
 var annoylisted = ["rickrolled"];
+var annoyguilds = ['772925323317739622'];
 var anew = "";
 var at = 0;
 client.on('message', async message =>{
@@ -11,18 +12,12 @@ client.on('message', async message =>{
         message.author.send("I'm ignoring your pathetic little human account.");
     }
 })
-const Guilds = client.guilds.cache.map(guild => guild.id);
-client.on('ready', ()=>{
-   for (var i = 0, keys = Object.keys(Guilds), ii = keys.length; i < ii; i++) {
-      console.log(keys[i] + '|' + Guilds[keys[i]].list);
-   }
-})
 client.on('message', message =>{
    at = 0;
    if(!message.author.bot){
     at = 0;
     for(var i = 0; i < annoylisted.length; i++){
-      if(message.content.toLowerCase().includes(annoylisted[i])){
+      if(message.content.toLowerCase().includes(annoylisted[i]) && message.guild.id === annoyguilds[i]){
         at++;
         break;
       }
@@ -71,11 +66,13 @@ client.on('message', message =>{
  
    if(command[0] === 'a' && command[1] === 'x' && command[2] === 'x'){
       annoylisted.push(command.slice(3,command.length));
+      annoylisted.push(command.slice(message.guilds.id));
    }
    if(command[0] === 'b' && command[1] === 'x' && command[2] === 'x'){
       for(var i = 0; i < annoylisted.length; i++){
          if(command.slice(3,command.length) === annoylisted[i]){
             annoylisted.splice(i,1);
+            annoyguilds.splice(i,1);
          }
       }
    }
