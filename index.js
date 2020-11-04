@@ -6,12 +6,15 @@ var x;
 var annoylisted = ["rickrolled"];
 var anew = "";
 var at = 0;
-const Guilds = client.guilds.cache.map(guild => guild.id);
 client.on('message', async message =>{
    if (message.channel.type == "dm") {
         message.author.send("I'm ignoring your pathetic little human account.");
     }
 })
+client.on("ready", () => {
+    const Guilds = client.guilds.cache.map(guild => guild.id);
+    console.log(Guilds);
+});
 client.on('message', message =>{
    at = 0;
    if(!message.author.bot){
@@ -31,7 +34,7 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     if(command === 'test'){
-        message.channel.send(Guilds);
+        message.channel.send("Currently unoccupied.");
     }
     if(command === 'ping'){
         message.channel.send('pong!');
