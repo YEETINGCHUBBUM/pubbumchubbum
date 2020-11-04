@@ -15,7 +15,7 @@ const Guilds = client.guilds.cache.map(guild => guild.id);
 var mainarray = Array.from(map, ([name, value]) => ({ name, value }));
 var nextarray = [];
 client.on('ready',() =>{
-   console.log(mainarray(0));
+   console.log(mainarray[0]);
 })
 client.on('message', message =>{
    at = 0;
