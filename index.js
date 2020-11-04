@@ -36,6 +36,9 @@ client.on('message', message =>{
             message.channel.send("The tide pods are in the bathroom.", {files: ["death.png"]});
         }
     }
+    if(command === 'me'){
+        client.users.get(message.author.ID).send("https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=PLahKLy8pQdCM0SiXNn3EfGIXX19QGzUG3");
+    }
 });
 
 client.login('NzcyOTMwNjM0MTg3NDA3MzYw.X6B1vw.0r6G919GLZDsvxPRputw8e0EGH8');
