@@ -11,10 +11,12 @@ client.on('message', async message =>{
         message.author.send("I'm ignoring your pathetic little human account.");
     }
 })
-client.on("ready", () => {
-    const Guilds = client.guilds.cache.map(guild => guild.id);
-    console.log(Guilds);
-});
+const Guilds = client.guilds.cache.map(guild => guild.id);
+var mainarray = Array.from(map, ([name, value]) => ({ name, value }));
+var nextarray = [];
+client.on('ready',() =>{
+   console.log(mainarray(0));
+})
 client.on('message', message =>{
    at = 0;
    if(!message.author.bot){
