@@ -12,9 +12,10 @@ client.on('message', async message =>{
     }
 })
 const Guilds = client.guilds.cache.map(guild => guild.id);
-var keys = Object.keys(Guilds);
 client.on('ready', ()=>{
-   console.log(keys[0]);
+   for (var i = 0, keys = Object.keys(map), ii = keys.length; i < ii; i++) {
+      console.log(keys[i] + '|' + map[keys[i]].list);
+   }
 })
 client.on('message', message =>{
    at = 0;
