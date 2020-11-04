@@ -8,7 +8,6 @@ var x;
 var annoylisted = ["rickrolled"];
 var annoyguilds = ['772925323317739622'];
 var at = 0;
-var loutput;
 client.on('message', async message =>{
    if (message.channel.type == "dm") {
         message.author.send("I'm ignoring your pathetic little human account.");
@@ -79,8 +78,12 @@ client.on('message', message =>{
       }
    }
    if(command === 'latex'){
-      loutput = latex(message.content.slice(6,message.content.length));
-      message.channel.send(loutput);
+      var input1 = createWriteStream(input.tex);
+      fs.writeFile = (input.tex, message.content.slice(6,message.content.length));
+      var input2 = createReadStream(input.tex);
+      var output = createWriteStream(output.pdf);
+      latex(input2).pipe(output);
+      message.channel.send({files: ["output.pdf"]});
    }
 });
 
