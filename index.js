@@ -17,7 +17,7 @@ client.on('message', message =>{
    if(!message.author.bot){
     at = 0;
     for(var i = 0; i < annoylisted.length; i++){
-      if(message.content.toLowerCase().includes(annoylisted[i]) && message.guild.id === annoyguilds[i]){
+      if(message.content.toLowerCase().includes(annoylisted[i]) && message.guild.id == annoyguilds[i]){
         at++;
       }
      }
@@ -69,7 +69,7 @@ client.on('message', message =>{
    }
    if(command[0] === 'b' && command[1] === 'x' && command[2] === 'x'){
       for(var i = 0; i < annoylisted.length; i++){
-         if(command.slice(3,command.length) === annoylisted[i] && message.guild.id === annoyguilds[i]){
+         if(command.slice(3,command.length) === annoylisted[i] && message.guild.id == annoyguilds[i]){
             annoylisted.splice(i,1);
             annoyguilds.splice(i,1);
             i--;
