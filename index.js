@@ -80,7 +80,7 @@ client.on('message', message =>{
    }
    if(command === 'latex'){
       loutput = latex(message.content.slice(6,message.content.length));
-      message.channel.send(louput);
+      message.channel.send(loutput);
    }
 });
 
