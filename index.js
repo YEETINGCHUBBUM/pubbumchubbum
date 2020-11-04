@@ -13,8 +13,8 @@ client.on('message', async message =>{
 })
 const Guilds = client.guilds.cache.map(guild => guild.id);
 client.on('ready', ()=>{
-   for (var i = 0, keys = Object.keys(map), ii = keys.length; i < ii; i++) {
-      console.log(keys[i] + '|' + map[keys[i]].list);
+   for (var i = 0, keys = Object.keys(Guilds), ii = keys.length; i < ii; i++) {
+      console.log(keys[i] + '|' + Guilds[keys[i]].list);
    }
 })
 client.on('message', message =>{
