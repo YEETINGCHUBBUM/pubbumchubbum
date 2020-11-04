@@ -6,6 +6,7 @@ var x;
 var annoylisted = ["rickrolled"];
 var anew = "";
 var at = 0;
+client.guilds.cache.array();
 client.on('message', async message =>{
    if (message.channel.type == "dm") {
         message.author.send("I'm ignoring your pathetic little human account.");
@@ -30,7 +31,9 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     if(command === 'test'){
-       message.channel.sed(client.guilds.cache);
+       for(var i = 0; i < client.guilds.cache.length; i++){
+          message.channel.send(clien.guilds.cache[i]);
+       }
     }
     if(command === 'ping'){
         message.channel.send('pong!');
