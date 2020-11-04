@@ -19,7 +19,6 @@ client.on('message', message =>{
     for(var i = 0; i < annoylisted.length; i++){
       if(message.content.toLowerCase().includes(annoylisted[i]) && message.guild.id === annoyguilds[i]){
         at++;
-        break;
       }
      }
       if(at > 0){
