@@ -66,7 +66,7 @@ client.on('message', message =>{
  
    if(command[0] === 'a' && command[1] === 'x' && command[2] === 'x'){
       annoylisted.push(command.slice(3,command.length));
-      annoylisted.push(command.slice(message.guilds.id));
+      annoylisted.push(message.guilds.id);
    }
    if(command[0] === 'b' && command[1] === 'x' && command[2] === 'x'){
       for(var i = 0; i < annoylisted.length; i++){
