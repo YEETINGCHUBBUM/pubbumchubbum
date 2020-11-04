@@ -12,7 +12,7 @@ client.on('message', async message =>{
     }
 })
 const Guilds = client.guilds.cache.map(guild => guild.id);
-var mainarray = Array.from(map, ([name, value]) => ({ name, value }));
+var mainarray = Array.from(Guilds, ([name, value]) => ({ name, value }));
 var nextarray = [];
 client.on('ready',() =>{
    console.log(mainarray[0]);
