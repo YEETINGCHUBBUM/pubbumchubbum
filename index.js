@@ -3,14 +3,17 @@ const client = new Discord.Client();
 
 const prefix = '!';
 var x;
+client.on('message', async message =>{
+   if (message.channel.type == "dm") {
+        message.author.send("I'm ignoring your pathetic little human account.");
+    }
+})
 client.on('message', message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
 
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
-    if (message.channel.type == "dm") {
-        message.author.send("I'm ignoring your pathetic little human account.");
-    }
+    
     if(command === 'ping'){
         message.channel.send('pong!');
     }
