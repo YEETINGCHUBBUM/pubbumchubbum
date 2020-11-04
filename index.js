@@ -12,6 +12,7 @@ client.on('message', async message =>{
     }
 })
 client.on('message', message =>{
+   at = 0;
    if(!message.author.bot){
     at = 0;
     for(var i in annoylisted){
