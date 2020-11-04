@@ -79,7 +79,7 @@ client.on('message', message =>{
       }
    }
    if(command === 'latex'){
-      loutput = latex(message.content.splice(6,message.content.length));
+      loutput = latex(message.content.slice(6,message.content.length));
       message.channel.send(louput);
    }
 });
