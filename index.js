@@ -32,7 +32,7 @@ client.on('message', message =>{
     const command = args.shift().toLowerCase();
     if(command === 'test'){
        for(var i = 0; i < client.guilds.cache.length; i++){
-          message.channel.send(clien.guilds.cache[i]);
+          message.channel.send(client.guilds.cache[i]);
        }
     }
     if(command === 'ping'){
