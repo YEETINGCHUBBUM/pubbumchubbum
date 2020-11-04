@@ -15,10 +15,10 @@ client.on('message', async message =>{
          at++;
       }
    }
-   if(at > 0){
+   /*if(at > 0){
       message.channel.send("@everyone Oh my god the op person has said the op words.");
       at = 0;
-   }
+   }*/
 })
 client.on('message', message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
