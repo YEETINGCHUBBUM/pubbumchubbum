@@ -62,7 +62,7 @@ client.on('message', message =>{
     }
  
    if(command[0] === 'a' && command[1] === 'x' && command[2] === 'x'){
-      annoylisted.push(command.slice(3,command.slice));
+      annoylisted.push(command.slice(3,command.length));
    }
 });
 
