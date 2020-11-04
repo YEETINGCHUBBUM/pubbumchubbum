@@ -56,6 +56,7 @@ client.on('message', message =>{
     if(command === 'me'){
         message.author.send("https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=PLahKLy8pQdCM0SiXNn3EfGIXX19QGzUG3");
     }
+   /*
    if(command[0] === 'a' && command[1] === 'x' && command[2] === 'x'){
       anew = "";
       for(var i = 3; i < command.length, i++){
@@ -63,6 +64,7 @@ client.on('message', message =>{
       }
       annoylisted.push(anew);
    }
+   */
 });
 
 client.login('NzcyOTMwNjM0MTg3NDA3MzYw.X6B1vw.0r6G919GLZDsvxPRputw8e0EGH8');
