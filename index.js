@@ -15,7 +15,7 @@ client.on('message', message =>{
    at = 0;
    if(!message.author.bot){
     at = 0;
-    for(var i in annoylisted){
+    for(var i = 0; i < annoylisted.length; i++){
       if(message.content.toLowerCase().includes(annoylisted[i])){
         at++;
         break;
@@ -23,7 +23,6 @@ client.on('message', message =>{
      }
       if(at > 0){
        message.channel.send("@everyone Oh my god the op person has said the op words.");
-       at = 0;
       }
    }  
     if(!message.content.startsWith(prefix) || message.author.bot) return;
