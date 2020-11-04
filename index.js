@@ -24,16 +24,16 @@ client.on('message', message =>{
     if(command === 'suicide'){
       x = Math.random()
         if(x < 0.25){
-            message.channel.send("The knives are in the kitchen.");
+            message.channel.send("The knives are in the kitchen.", {files: ["death.png"]});
         }
         else if(x < 0.5){
-            message.channel.send("The medicine is in the cabinet.");
+            message.channel.send("The medicine is in the cabinet.", {files: ["death.png"]});
         }
         else if(x < 0.75){
-            message.channel.send("The car is in the driveway.");
+            message.channel.send("The car is in the driveway.", {files: ["death.png"]});
         }
         else if(x < 1){
-            message.channel.send("The tide pods are in the bathroom.");
+            message.channel.send("The tide pods are in the bathroom.", {files: ["death.png"]});
         }
     }
 });
