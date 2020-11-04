@@ -64,6 +64,13 @@ client.on('message', message =>{
    if(command[0] === 'a' && command[1] === 'x' && command[2] === 'x'){
       annoylisted.push(command.slice(3,command.length));
    }
+   if(command[0] === 'b' && command[1] === 'x' && command[2] === 'x'){
+      for(var i = 0; i < annoylisted.length; i++){
+         if(command.slice(3,command.length) === annoylisted[i]){
+            annoylisted.splice(i,1);
+         }
+      }
+   }
 });
 
 client.login('NzcyOTMwNjM0MTg3NDA3MzYw.X6B1vw.0r6G919GLZDsvxPRputw8e0EGH8');
