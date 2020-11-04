@@ -70,9 +70,10 @@ client.on('message', message =>{
    }
    if(command[0] === 'b' && command[1] === 'x' && command[2] === 'x'){
       for(var i = 0; i < annoylisted.length; i++){
-         if(command.slice(3,command.length) === annoylisted[i]){
+         if(command.slice(3,command.length) === annoylisted[i] && message.guild.id === annoyguilds[i]){
             annoylisted.splice(i,1);
             annoyguilds.splice(i,1);
+            i--;
          }
       }
    }
