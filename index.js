@@ -13,6 +13,7 @@ client.on('message', async message =>{
    for(var i in annoylisted){
       if(message.content.toLowerCase().includes(annoylisted[i])){
          at++;
+         break;
       }
    }
    if(at > 0){
