@@ -11,6 +11,7 @@ client.on('message', async message =>{
         message.author.send("I'm ignoring your pathetic little human account.");
     }
    if(!message.author.bot){
+      at = 0;
       for(var i in annoylisted){
        if(message.content.toLowerCase().includes(annoylisted[i])){
           at++;
