@@ -78,7 +78,7 @@ client.on('message', message =>{
          }
       }
    }
-   if(command = 'latex'){
+   if(command === 'latex'){
       loutput = latex(message.content.splice(6,message.content.length));
       message.channel.send(louput);
    }
