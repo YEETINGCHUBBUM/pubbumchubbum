@@ -78,10 +78,10 @@ client.on('message', message =>{
       }
    }
    if(command === 'latex'){
-      var input1 = createWriteStream(input.tex);
+      var input1 = fs.createWriteStream(input.tex);
       fs.writeFile = (input.tex, message.content.slice(6,message.content.length));
-      var input2 = createReadStream(input.tex);
-      var output = createWriteStream(output.pdf);
+      var input2 = fs.createReadStream(input.tex);
+      var output = fs.createWriteStream(output.pdf);
       latex(input2).pipe(output);
       message.channel.send({files: ["output.pdf"]});
    }
