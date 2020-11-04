@@ -10,15 +10,15 @@ client.on('message', async message =>{
    if (message.channel.type == "dm") {
         message.author.send("I'm ignoring your pathetic little human account.");
     }
-   /*for(var i in annoylisted){
+   for(var i in annoylisted){
       if(message.content.toLowerCase().includes(annoylisted[i])){
          at++;
       }
-   }*/
-   /*if(at > 0){
+   }
+   if(at > 0){
       message.channel.send("@everyone Oh my god the op person has said the op words.");
       at = 0;
-   }*/
+   }
 })
 client.on('message', message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
