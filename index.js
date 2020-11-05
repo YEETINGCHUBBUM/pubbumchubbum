@@ -52,7 +52,7 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     if(command === 'test'){
-        message.channel.send(fs.readFileSync(new URL('file://storagerepl.atvtheking.repl.co/a.txt'),'utf8').toString());
+      message.channel.send('Currently Unoccupied.');
     }
     if(command === 'ping'){
         message.channel.send('pong!');
