@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const dc = require('./dc.js');
 const randomPuppy = require('random-puppy');
 const snekfetch = require('snekfetch');
-const fs = require('fs');
 const client = new Discord.Client();
 
 const prefix = '!';
