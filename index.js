@@ -127,7 +127,7 @@ client.on('message', message =>{
     if(command === 'racism'){
         message.channel.send("https://www.youtube.com/watch?v=9eMhnnMmNMI");
     }
-    if(command[0] === 'k' && command[1] === 'i' && command[2] === 'n' && command[3] === 'g'){
+    if(command[0] === 'k' && command[1] === 'i' && command[2] === 'n' && command[3] === 'g' && (kingid == "a" || message.member.roles.cache.find(r => r.name == kinglist[kingid]))){
         var a = 0;
         for(var i = 0; i < kiguilds.length; i++){
             if(message.guild.id === kiguilds[i]){
