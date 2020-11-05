@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const dc = require('./dc.js');
 const randomPuppy = require('random-puppy');
 const snekfetch = require('snekfetch');
+const fs = require('fs');
 const client = new Discord.Client();
 
 const prefix = '!';
@@ -57,7 +58,7 @@ client.on('message', message =>{
         message.channel.send('pong!');
     }
     if(command === 'cringe'){
-      message.channel.send("Yeet", {files: ["cringe.png"]});
+      message.channel.send(fs.readFileSync('https://storagerepl.atvtheking.repl.co/a.txt','utf8').toString());
     }
     if(command === 'yeet'){
         message.channel.send("The Yeet Gods bless you with 5+ Karma.");
