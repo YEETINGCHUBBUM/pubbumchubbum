@@ -117,7 +117,7 @@ client.on('message', message =>{
         message.channel.send(aoq.a[y]);
     }
     if(command === 'racism'){
-        command.send.message("https://www.youtube.com/watch?v=9eMhnnMmNMI");
+        message.channel.send("https://www.youtube.com/watch?v=9eMhnnMmNMI");
     }
 });
 
