@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const dc = require('./dc.js');
 const randomPuppy = require('random-puppy');
 const snekfetch = require('snekfetch');
+const aoq = require('./aoq.js');
 const client = new Discord.Client();
 
 const prefix = '!';
@@ -111,6 +112,10 @@ client.on('message', message =>{
      }).then(message.channel.stopTyping());
   }).catch(err => console.error(err));
    }
+    if(command === 'fact'){
+        var y = Math.floor(Math.random()*101);
+        message.channel.send(aoq.a[y]);
+    }
 });
 
 client.login('NzcyOTMwNjM0MTg3NDA3MzYw.X6B1vw.0r6G919GLZDsvxPRputw8e0EGH8');
