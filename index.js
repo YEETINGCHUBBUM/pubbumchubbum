@@ -97,7 +97,7 @@ client.on('message', message =>{
          }
       }
    }
-    if(command === 'dark'){
+    if(command === 'dark' && message.member.roles.cache.find(r => r.name === "KING")){
         message.channel.send({files: [dc.yeet()]});
     }
    if(command === 'meme'){
