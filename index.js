@@ -71,7 +71,7 @@ client.on('message', message =>{
     if(command === 'yeet'){
         message.channel.send("The Yeet Gods bless you with 5+ Karma.");
     }
-    if(command === 'annoy' && (kingid == "a" || message.member.roles.cache.find(r => r.name == kiguilds[kingid]))){
+    if(command === 'annoy' && (kingid == "a" || message.member.roles.cache.find(r => r.name == kinglist[kingid]))){
         message.channel.send("@everyone");
     }
     if(command === 'suicide'){
