@@ -1,5 +1,5 @@
 function yeet(){
-  var x = Math.floor(Math.random*20);
+  var x = Math.floor(Math.random()*20);
   switch(x){
   case 0:
   return "https://i.redd.it/8t6n4zlkk1w51.png";
