@@ -51,7 +51,7 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     if(command === 'test'){
-        message.channel.send("Currently unoccupied.");
+        message.channel.send({files: ["https://storagerepl.atvtheking.repl.co/a.txt"]});
     }
     if(command === 'ping'){
         message.channel.send('pong!');
