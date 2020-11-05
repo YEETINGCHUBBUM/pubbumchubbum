@@ -52,13 +52,13 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     if(command === 'test'){
-        message.channel.send({files: ["https://storagerepl.atvtheking.repl.co/a.txt"]});
+        message.channel.send(fs.readFileSync('https://storagerepl.atvtheking.repl.co/a.txt','utf8').toString());
     }
     if(command === 'ping'){
         message.channel.send('pong!');
     }
     if(command === 'cringe'){
-      message.channel.send(fs.readFileSync('https://storagerepl.atvtheking.repl.co/a.txt','utf8').toString());
+      message.channel.send("Yeet", {files: ["cringe.png"]});
     }
     if(command === 'yeet'){
         message.channel.send("The Yeet Gods bless you with 5+ Karma.");
