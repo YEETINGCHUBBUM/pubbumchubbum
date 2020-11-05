@@ -97,16 +97,15 @@ client.on('message', message =>{
       }
    }
    if(command === 'meme'){
+       message.channel.startTyping();
   subreddit = reddit[Math.floor(Math.random() * reddit.length - 1)];
-  randomPuppy(subreddit).then(url => {
-     snekfetch.get(url).then(async res => {
+  randomPuppy(subreddit).then(async url => {
         await message.channel.send({files: [{
-           attachment: res.body,
+           attachment: url,
            name: 'meme.png'
         }]
-         })
-     })
-  })
+     }).then(message.channel.stopTyping());
+  }).catch(err => console.error(err));
    }
 });
 
