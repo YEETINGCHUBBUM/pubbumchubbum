@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
-const latex = require('node-latex');
-const fs = require('fs');
+const dc = require('./dc.js');
 const client = new Discord.Client();
 
 const prefix = '!';
@@ -77,13 +76,8 @@ client.on('message', message =>{
          }
       }
    }
-   if(command === 'latex'){
-      var input1 = fs.createWriteStream("input.tex");
-      fs.writeFile = ("input.tex", message.content.slice(6,message.content.length));
-      var input2 = fs.createReadStream("input.tex");
-      var output = fs.createWriteStream("output.pdf");
-      latex(input2).pipe(output);
-      message.channel.send({files: ["output.pdf"]});
+   if(command === 'meme'){
+      message.channel.send({files: [dc.yeet()]});
    }
 });
 
