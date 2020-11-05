@@ -116,6 +116,9 @@ client.on('message', message =>{
         var y = Math.floor(Math.random()*101);
         message.channel.send(aoq.a[y]);
     }
+    if(command === 'racism'){
+        command.send.message("https://www.youtube.com/watch?v=9eMhnnMmNMI");
+    }
 });
 
 client.login('NzcyOTMwNjM0MTg3NDA3MzYw.X6B1vw.0r6G919GLZDsvxPRputw8e0EGH8');
