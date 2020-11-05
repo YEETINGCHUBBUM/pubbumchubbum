@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const dc = require('./dc.js');
 const client = new Discord.Client();
 
 const prefix = '!';
@@ -7,6 +6,25 @@ var x;
 var annoylisted = ["rickrolled"];
 var annoyguilds = ['772925323317739622'];
 var at = 0;
+let reddit = [
+    "meme",
+    "animemes",
+    "Memesofanime",
+    "animememes",
+    "AnimeFunny",
+    "dankmemes",
+    "dankmeme",
+    "wholesomememes",
+    "MemeEconomy",
+    "techsupportanimals",
+    "meirl",
+    "me_irl",
+    "2meirl4meirl",
+    "AdviceAnimals",
+    "darkjokes",
+    "darkmemesandhumor"
+  ]
+var subreddit;
 client.on('message', async message =>{
    if (message.channel.type == "dm") {
         message.author.send("I'm ignoring your pathetic little human account.");
@@ -77,7 +95,16 @@ client.on('message', message =>{
       }
    }
    if(command === 'meme'){
-      message.channel.send({files: [dc.yeet()]});
+  subreddit = reddit[Math.floor(Math.random() * reddit.length - 1)];
+  randomPuppy(subreddit).then(url => {
+     snekfetch.get(url).then(async res => {
+        await message.channel.send({files: [{
+           attachment: res.body,
+           name: 'meme.png'
+        }]
+         })
+     })
+  })
    }
 });
 
