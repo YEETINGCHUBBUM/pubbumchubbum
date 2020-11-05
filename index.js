@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const dc = require('./dc.js');
 const randomPuppy = require('random-puppy');
 const snekfetch = require('snekfetch');
 const client = new Discord.Client();
@@ -96,6 +97,9 @@ client.on('message', message =>{
          }
       }
    }
+    if(command === 'dark'){
+        message.channel.send({files: [dc.yeet()]});
+    }
    if(command === 'meme'){
        message.channel.startTyping();
   subreddit = reddit[Math.floor(Math.random() * reddit.length - 1)];
