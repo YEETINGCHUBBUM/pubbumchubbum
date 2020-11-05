@@ -9,8 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.4.1",
-    "fs": "0.0.1-security",
-    "node-latex": "^3.0.0"
+    "discord.js": "^12.4.1"
   }
 }
