@@ -2,7 +2,7 @@ function yeet(){
   var x = Math.floor(20*Math.random());
   switch(x){
     case 0:
-    return "https://images-ext-1.discordapp.net/external/zbTpD_V2l0WL7F5zgLEFsyQDzE9Y-Grenxmi-HkOho0/https/qph.fs.quoracdn.net/main-qimg-5ea6380ca8c906b1736e75b14d74bb78?width=588&height=613";
+    return "http://qph.fs.quoracdn.net/main-qimg-5ea6380ca8c906b1736e75b14d74bb78?width=360&height=375";
       break;
     case 1:
     return "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQaR9VmFCgCl64iYnbvg5RFzM1AyWlcfdw5FA&usqp=CAU"
