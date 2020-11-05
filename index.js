@@ -129,7 +129,7 @@ client.on('message', message =>{
     }
     if(command[0] === 'k' && command[1] === 'i' && command[2] === 'n' && command[3] === 'g'){
         var a = 0;
-        for(int i = 0; i < kiguilds.length; i++){
+        for(var i = 0; i < kiguilds.length; i++){
             if(message.guild.id === kiguilds[i]){
                 kinglist[i] = command.slice(4,command.length);
                 a++;
