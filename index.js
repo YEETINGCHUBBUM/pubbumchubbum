@@ -9,6 +9,8 @@ const prefix = '!';
 var x;
 var annoylisted = ["rickrolled"];
 var annoyguilds = ['772925323317739622'];
+var kinglist = ["KING"];
+var kiguilds = ['772925323317739622'];
 var at = 0;
 let reddit = [
     "meme",
@@ -47,8 +49,14 @@ client.on('message', message =>{
        message.channel.send("@everyone Oh my god the op person has said the op words.");
       }
    }  
-    if(!message.content.startsWith(prefix) || message.author.bot) return;
-
+    
+    if(!message.content.startsWith(prefix) || message.author.bot || message.channel.type == "dm") return;
+    var kingid = "a";
+    for(var i = 0; i < kinglist.length; i++){
+        if(kiguilds[i] === message.guild.id){
+            kingid = i;
+        }
+    }
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     if(command === 'test'){
@@ -63,7 +71,7 @@ client.on('message', message =>{
     if(command === 'yeet'){
         message.channel.send("The Yeet Gods bless you with 5+ Karma.");
     }
-    if(command === 'annoy' && message.member.roles.cache.find(r => r.name === "KING")){
+    if(command === 'annoy' && (kingid == "a" || message.member.roles.cache.find(r => r.name == kiguilds[kingid]))){
         message.channel.send("@everyone");
     }
     if(command === 'suicide'){
@@ -98,7 +106,7 @@ client.on('message', message =>{
          }
       }
    }
-    if(command === 'dark' && message.member.roles.cache.find(r => r.name === "KING")){
+    if(command === 'dark' && (kingid == "a" || message.member.roles.cache.find(r => r.name == kiguilds[kingid]))){
         message.channel.send({files: [dc.yeet()]});
     }
    if(command === 'meme'){
@@ -118,6 +126,19 @@ client.on('message', message =>{
     }
     if(command === 'racism'){
         message.channel.send("https://www.youtube.com/watch?v=9eMhnnMmNMI");
+    }
+    if(command[0] === 'k' && command[1] === 'i' && command[2] === 'n' && command[3] === 'g'){
+        var a = 0;
+        for(int i = 0; i < kiguilds.length; i++){
+            if(message.guild.id === kiguilds[i]){
+                kinglist[i] = command.slice(4,command.length);
+                a++;
+            }
+        }
+        if(a == 0){
+            kinglist.push(command.slice(4,command.length));
+            kiguilds.push(message.guild.id);
+        }
     }
 });
 
