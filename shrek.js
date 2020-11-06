@@ -2995,7 +2995,7 @@ let a = [
 
 "form.\
 
-"-\"Take love\'s true form. Take love\'s true form.\
+"-\"Take love\'s true form. Take love\'s true form.\"",
 
 "-Fiona? Fiona. Are you all right? ",
 
