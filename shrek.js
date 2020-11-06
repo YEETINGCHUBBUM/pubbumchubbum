@@ -3430,9 +3430,13 @@ let a = [
 "Into your perfect face ",
 " ",
 ]
-module.exports.bible = function(){
+function yeet(){
   var b = Math.floor(Math.random() * 3429);
   if(!a[b] == " "){
     return a[b];
   }
+  else{
+    yeet();
+  }
 }
+module.exports.bible = yeet;
