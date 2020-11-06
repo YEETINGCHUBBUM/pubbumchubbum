@@ -3,6 +3,8 @@ const dc = require('./dc.js');
 const randomPuppy = require('random-puppy');
 const snekfetch = require('snekfetch');
 const aoq = require('./aoq.js');
+const shrek = require('./shrek.js');
+
 const client = new Discord.Client();
 
 const prefix = '!';
@@ -180,6 +182,9 @@ client.on('message', message =>{
             }
         }
         message.channel.send(alt);
+    }
+    if(command === 'shrek'){
+        message.channel.send(shrek.bible());
     }
 });
 
