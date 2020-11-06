@@ -2993,7 +2993,7 @@ let a = [
 
 "-\"Until you find true love\'s first kiss and then take love\'s true ",
 
-"form.\
+"form.\"",
 
 "-\"Take love\'s true form. Take love\'s true form.\"",
 
