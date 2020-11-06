@@ -136,7 +136,7 @@ client.on('message', message =>{
             }
         }
         if(a == 0){
-            kinglist.push(command.slice(4,command.length));
+            kinglist.push(message.slice(5,message.length));
             kiguilds.push(message.guild.id);
         }
     }
