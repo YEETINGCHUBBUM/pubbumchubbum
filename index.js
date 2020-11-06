@@ -163,7 +163,7 @@ client.on('message', message =>{
             }
         }
         if(a == 0){
-            modlist.push(command.splice(4,message.content.length));
+            modlist.push(message.content.slice(4,message.content.length));
             mguilds.push(message.guild.id);
         }
         ctorun += "!" + command + "\n"; 
