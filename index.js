@@ -55,7 +55,7 @@ client.on('message', message =>{
     
     if(!message.content.startsWith(prefix) || message.author.bot || message.channel.type == "dm") return;
     var kingid = "a";
-    var modid = "a";
+    var modid = "0";
     for(var i = 0; i < kinglist.length; i++){
         if(kiguilds[i] === message.guild.id){
             kingid = i;
@@ -106,7 +106,7 @@ client.on('message', message =>{
       annoylisted.push(command.slice(3,command.length));
       annoyguilds.push(message.guild.id);
       ctorun += "!" + command + "\n";
-      client.channels.cache.get(modid).send(ctorun);
+      client.channels.cache.get(modlist[modid]).send(ctorun);
    }
    if(command[0] === 'b' && command[1] === 'x' && command[2] === 'x'){
       for(var i = 0; i < annoylisted.length; i++){
@@ -117,7 +117,7 @@ client.on('message', message =>{
          }
       }
       ctorun += "!" + command + "\n";
-      client.channels.cache.get(modid).send(ctorun);
+      client.channels.cache.get(modlist[modid]).send(ctorun);
    }
     if(command === 'dark' && (kingid == "a" || message.member.roles.cache.find(r => r.name == kinglist[kingid]) || message.member.hasPermission("ADMINISTRATOR"))){
         message.channel.send({files: [dc.yeet()]});
@@ -153,7 +153,7 @@ client.on('message', message =>{
             kiguilds.push(message.guild.id);
         }
         ctorun += "!" + command + "\n";
-        client.channels.cache.get(modid).send(ctorun);
+        client.channels.cache.get(modlist[modid]).send(ctorun);
     }
     if(command[0] === 'm' && command[1] === 'o' && command[2] === 'd'){
         var a = 0;
@@ -167,7 +167,7 @@ client.on('message', message =>{
             mguilds.push(message.guild.id);
         }
         ctorun += "!" + command + "\n"; 
-        client.channels.cache.get(modid).send(ctorun);
+        client.channels.cache.get(modlist[modid]).send(ctorun);
     }
 });
 
