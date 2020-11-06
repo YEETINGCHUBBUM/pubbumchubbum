@@ -3437,7 +3437,7 @@ for(var i = 0; i < a.length; i++){
   }
 }
 function yeet(){
-  var b = Math.floor(Math.random() * 3429);
+  var b = Math.floor(Math.random() * a.length);
   console.log(b);
   console.log(a[b]);
   if(!a[b] == " "){
