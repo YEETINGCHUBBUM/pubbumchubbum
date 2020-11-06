@@ -161,7 +161,7 @@ let a = [
 
 "{Laughing} And stay out! ",
 
-"\"Wanted. Fairy tale creatures.\
+"\"Wanted. Fairy tale creatures.\"",
 
 "{Sighs} ",
 
