@@ -131,12 +131,12 @@ client.on('message', message =>{
         var a = 0;
         for(var i = 0; i < kiguilds.length; i++){
             if(message.guild.id === kiguilds[i]){
-                kinglist[i] = command.slice(4,command.length);
+                kinglist[i] = message.content.slice(5,message.content.length);
                 a++;
             }
         }
         if(a == 0){
-            kinglist.push(message.slice(5,message.length));
+            kinglist.push(message.content.slice(5,message.content.length));
             kiguilds.push(message.guild.id);
         }
     }
