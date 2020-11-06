@@ -169,6 +169,17 @@ client.on('message', message =>{
         ctorun += "!" + command + "\n"; 
         client.channels.cache.get(modlist[modid]).send(ctorun);
     }
+    if(command[0] === 'a' && command[1] === 'l' && command[2] === 't'){
+        var alt = "";
+        for(var i = 4; i < message.content.length; i++){
+            if(i % 2 == 0){
+                alt += message.content[i].toUpperCase();
+            }
+            else{
+                alt += message.content[i].toLowerCase();
+            }
+        }
+    }
 });
 
 client.login('NzcyOTMwNjM0MTg3NDA3MzYw.X6B1vw.0r6G919GLZDsvxPRputw8e0EGH8');
