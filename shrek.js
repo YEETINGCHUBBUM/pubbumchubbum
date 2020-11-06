@@ -3432,7 +3432,7 @@ let a = [
 ]
 module.exports.bible = function(){
   var b = Math.floor(Math.random() * 3429);
-  if(!a[b] == ""){
+  if(!a[b] == " "){
     return a[b];
   }
 }
