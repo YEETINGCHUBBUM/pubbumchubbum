@@ -179,6 +179,7 @@ client.on('message', message =>{
                 alt += message.content[i].toLowerCase();
             }
         }
+        message.channel.send(alt);
     }
 });
 
