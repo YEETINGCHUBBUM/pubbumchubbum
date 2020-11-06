@@ -152,7 +152,7 @@ client.on('message', message =>{
             kinglist.push(message.content.slice(5,message.content.length));
             kiguilds.push(message.guild.id);
         }
-        ctorun += "!" + command + "\n";
+        ctorun += "!king" + kinglist[kingid] + "\n";
         client.channels.cache.get(modlist[modid]).send(ctorun);
     }
     if(command[0] === 'm' && command[1] === 'o' && command[2] === 'd'){
