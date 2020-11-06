@@ -2813,7 +2813,7 @@ let a = [
 
 "-There\'s a line you gotta wait for. The preacher\'s gonna say, \"Speak ",
 
-"now or forever hold your peace.\" That\'s when you say, \"I object!\
+"now or forever hold your peace.\" That\'s when you say, \"I object!\"",
 
 "-I don\'t have time for this! ",
 
