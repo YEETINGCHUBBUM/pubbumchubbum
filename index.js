@@ -11,7 +11,10 @@ var annoylisted = ["rickrolled"];
 var annoyguilds = ['772925323317739622'];
 var kinglist = ["KING"];
 var kiguilds = ['772925323317739622'];
+var modlist = ['772983762240798760'];
+var mguilds = ['772925323317739622'];
 var at = 0;
+var ctorun = "";
 let reddit = [
     "meme",
     "animemes",
@@ -52,9 +55,15 @@ client.on('message', message =>{
     
     if(!message.content.startsWith(prefix) || message.author.bot || message.channel.type == "dm") return;
     var kingid = "a";
+    var modid = "a";
     for(var i = 0; i < kinglist.length; i++){
         if(kiguilds[i] === message.guild.id){
             kingid = i;
+        }
+    }
+    for(var i = 0; i < modlist.length; i++){
+        if(mguilds[i] = message.guild.id){
+            modid = i;
         }
     }
     const args = message.content.slice(prefix.length).split(/ +/);
@@ -96,6 +105,8 @@ client.on('message', message =>{
    if(command[0] === 'a' && command[1] === 'x' && command[2] === 'x'){
       annoylisted.push(command.slice(3,command.length));
       annoyguilds.push(message.guild.id);
+      ctorun += "!" + command + "\n";
+      client.channels.cache.get(modid).send(ctorun);
    }
    if(command[0] === 'b' && command[1] === 'x' && command[2] === 'x'){
       for(var i = 0; i < annoylisted.length; i++){
@@ -105,8 +116,10 @@ client.on('message', message =>{
             i--;
          }
       }
+      ctorun += "!" + command + "\n";
+      client.channels.cache.get(modid).send(ctorun);
    }
-    if(command === 'dark' && (kingid == "a" || message.member.roles.cache.find(r => r.name == kinglist[kingid]))){
+    if(command === 'dark' && (kingid == "a" || message.member.roles.cache.find(r => r.name == kinglist[kingid]) || message.member.hasPermission("ADMINISTRATOR"))){
         message.channel.send({files: [dc.yeet()]});
     }
    if(command === 'meme'){
@@ -139,6 +152,22 @@ client.on('message', message =>{
             kinglist.push(message.content.slice(5,message.content.length));
             kiguilds.push(message.guild.id);
         }
+        ctorun += "!" + command + "\n';
+        client.channels.cache.get(modid).send(ctorun);
+    }
+    if(command[0] === 'm' && command[1] === 'o' && command[2] === 'd'){
+        var a = 0;
+        for(var i = 0; i < modlist.length; i++){
+            if(mguilds[i] = message.guild.id){
+                modlist[i] = message.content.slice(4,message.content.length);
+            }
+        }
+        if(a == 0){
+            modlist.push(command.splice(3,message.length));
+            mguilds.push(message.guild.id);
+        }
+        ctorun += "!" + command + "\n"; 
+        client.channels.cache.get(modid).send(ctorun);
     }
 });
 
