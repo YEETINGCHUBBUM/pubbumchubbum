@@ -3430,6 +3430,12 @@ let a = [
 "Into your perfect face ",
 " ",
 ]
+for(var i = 0; i < a.length; i++){
+  if(a[i] == " "){
+    a.splice(i,1);
+    i--;
+  }
+}
 function yeet(){
   var b = Math.floor(Math.random() * 3429);
   if(!a[b] == " "){
