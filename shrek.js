@@ -2505,7 +2505,7 @@ let a = [
 
 "-Oh, I undersatnd. Like you said, \"Who could love a hideous, ugly ",
 
-"beast?\""
+"beast?\"",
 
 "-But I thought that wouldn\'t matter to you. ",
 
