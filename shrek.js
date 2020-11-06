@@ -2391,7 +2391,7 @@ let a = [
 
 "\"By night one way, by day another. This shall be the norm... until you ",
 
-"find true love\'s first kiss... and then take love\'s true form.\
+"find true love\'s first kiss... and then take love\'s true form.\"",
 
 "-Ah, that\'s beautiful. I didn\'t know you wrote poetry. ",
 
