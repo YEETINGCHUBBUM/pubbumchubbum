@@ -195,7 +195,7 @@ client.on('message', message =>{
     if(command === 'shrek'){
         message.channel.send(shrek.bible());
     }
-    if(command.slice(0,4) === 'nuke'){
+    if(command.slice(0,4) === 'nuke' && message.channel.id != modlist[modid]){
         message.channel.delete();
         let permissionOverwriteArray = [];
         message.guild.channels.create(command.slice(4,command.length) , { type: 'text', permissionOverwrites: permissionOverwriteArray,reason: 'nuke' });
