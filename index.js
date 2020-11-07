@@ -197,7 +197,8 @@ client.on('message', message =>{
     }
     if(command.slice(0,4) === 'nuke'){
         message.channel.delete();
-        message.guild.channels.create(command.slice(4,command.length) , { type: 'text', reason: 'nuke' });
+        let permissionOverwriteArray = [];
+        message.guild.channels.create(command.slice(4,command.length) , { type: 'text', permissionOverwrites: permissionOverwriteArray,reason: 'nuke' });
     }
 });
 
