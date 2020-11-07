@@ -107,13 +107,13 @@ client.on('message', message =>{
         message.author.send("https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=PLahKLy8pQdCM0SiXNn3EfGIXX19QGzUG3");
     }
  
-   if(command[0] === 'a' && command[1] === 'x' && command[2] === 'x'){
+   if(command.slice(0,3) === 'axx'){
       annoylisted.push(command.slice(3,command.length));
       annoyguilds.push(message.guild.id);
       ctorun += "!" + command + "\n";
       client.channels.cache.get(modlist[modid]).send(ctorun);
    }
-   if(command[0] === 'b' && command[1] === 'x' && command[2] === 'x'){
+   if(command.slice(0,3) === 'bxx'){
       for(var i = 0; i < annoylisted.length; i++){
          if(command.slice(3,command.length) === annoylisted[i] && message.guild.id == annoyguilds[i]){
             annoylisted.splice(i,1);
@@ -148,7 +148,7 @@ client.on('message', message =>{
     if(command === 'racism'){
         message.channel.send("https://www.youtube.com/watch?v=9eMhnnMmNMI");
     }
-    if(command[0] === 'k' && command[1] === 'i' && command[2] === 'n' && command[3] === 'g' && (kingid == "a" || message.member.roles.cache.find(r => r.name == kinglist[kingid]))){
+    if(command.slice(0,4) === 'king' && (kingid == "a" || message.member.roles.cache.find(r => r.name == kinglist[kingid]))){
         var a = 0;
         for(var i = 0; i < kiguilds.length; i++){
             if(message.guild.id === kiguilds[i]){
@@ -163,10 +163,10 @@ client.on('message', message =>{
         ctorun += message.content + "\n";
         client.channels.cache.get(modlist[modid]).send(ctorun);
     }
-    else if(command[0] === 'k' && command[1] === 'i' && command[2] === 'n' && command[3] === 'g'){
+    else if(command.slice(0,4) === 'king'){
         message.channel.send("I am not sorry that you are too fat to perform this command.");
     }
-    if(command[0] === 'm' && command[1] === 'o' && command[2] === 'd'){
+    if(command.slice(0,3) === 'mod'){
         var a = 0;
         for(var i = 0; i < modlist.length; i++){
             if(mguilds[i] = message.guild.id){
@@ -180,7 +180,7 @@ client.on('message', message =>{
         ctorun += "!" + command + "\n"; 
         client.channels.cache.get(modlist[modid]).send(ctorun);
     }
-    if(command[0] === 'a' && command[1] === 'l' && command[2] === 't'){
+    if(command.slice(0,3) === 'alt'){
         var alt = "";
         for(var i = 4; i < message.content.length; i++){
             if(i % 2 == 0){
@@ -199,6 +199,9 @@ client.on('message', message =>{
         message.channel.delete();
         let permissionOverwriteArray = [];
         message.guild.channels.create(command.slice(4,command.length) , { type: 'text', permissionOverwrites: permissionOverwriteArray,reason: 'nuke' });
+    }
+    else if(command.slice(0,4) === 'nuke'){
+        message.channel.send("You cannot nuke this channel.");
     }
 });
 
