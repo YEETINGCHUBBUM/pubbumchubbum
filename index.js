@@ -195,6 +195,11 @@ client.on('message', message =>{
     if(command === 'shrek'){
         message.channel.send(shrek.bible());
     }
+    if(command === 'nuke'){
+        var a = message.channel.name;
+        message.channel.delete();
+        message.guild.channel.create(a,"text");
+    }
 });
 
 client.login('NzcyOTMwNjM0MTg3NDA3MzYw.X6B1vw.0r6G919GLZDsvxPRputw8e0EGH8');
