@@ -85,6 +85,9 @@ client.on('message', message =>{
     if(command === 'annoy' && (kingid == "a" || message.member.roles.cache.find(r => r.name == kinglist[kingid]))){
         message.channel.send("@everyone");
     }
+    else if(command === 'annoy'){
+        message.channel.send("I am not sorry that you are too fat to perform this command.");
+    }
     if(command === 'suicide'){
       x = Math.random()
         if(x < 0.25){
@@ -124,6 +127,9 @@ client.on('message', message =>{
     if(command === 'dark' && (kingid == "a" || message.member.roles.cache.find(r => r.name == kinglist[kingid]) || message.member.hasPermission("ADMINISTRATOR"))){
         message.channel.send({files: [dc.yeet()]});
     }
+    else if(command === 'dark'){
+        message.channel.send("I am not sorry that you are too fat to perform this command.");
+    }
    if(command === 'meme'){
        message.channel.startTyping();
   subreddit = reddit[Math.floor(Math.random() * reddit.length - 1)];
@@ -156,6 +162,9 @@ client.on('message', message =>{
         }
         ctorun += message.content + "\n";
         client.channels.cache.get(modlist[modid]).send(ctorun);
+    }
+    else if(command[0] === 'k' && command[1] === 'i' && command[2] === 'n' && command[3] === 'g'){
+        message.channel.send("I am not sorry that you are too fat to perform this command.");
     }
     if(command[0] === 'm' && command[1] === 'o' && command[2] === 'd'){
         var a = 0;
