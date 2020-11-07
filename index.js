@@ -195,10 +195,9 @@ client.on('message', message =>{
     if(command === 'shrek'){
         message.channel.send(shrek.bible());
     }
-    if(command === 'nuke'){
-        var a = message.channel.name;
+    if(command.slice(0,4) === 'nuke'){
         message.channel.delete();
-        message.guild.channels.create(a , { type: 'text', reason: 'nuke' });
+        message.guild.channels.create(command.slice(4,command.length) , { type: 'text', reason: 'nuke' });
     }
 });
 
