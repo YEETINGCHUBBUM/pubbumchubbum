@@ -198,7 +198,7 @@ client.on('message', message =>{
     if(command === 'nuke'){
         var a = message.channel.name;
         message.channel.delete();
-        message.guild.channelsCreate(a,"text");
+        message.guild.createChannel(a,"text");
     }
 });
 
