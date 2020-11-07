@@ -200,7 +200,7 @@ client.on('message', message =>{
         message.channel.delete();
         let permissionOverwriteArray = [];
         message.guild.channels.create(command.slice(4,command.length) , { type: 'text', permissionOverwrites: permissionOverwriteArray,reason: 'nuke' });
-        var b = message.guild.channels.find(channel => channel.name === "channel-name");
+        var b = message.guild.channels.cache.find(channel => channel.name === command.slice(4,command.length));
         b.setParent(a);
     }
     else if(command.slice(0,4) === 'nuke'){
