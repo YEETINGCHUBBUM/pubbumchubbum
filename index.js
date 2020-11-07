@@ -197,9 +197,10 @@ client.on('message', message =>{
     }
     if(command.slice(0,4) === 'nuke' && message.channel.id != modlist[modid]){
         var a = message.channel.parent;
+        var b = message.channel.position;
         message.channel.delete();
         let permissionOverwriteArray = [];
-        message.guild.channels.create(command.slice(4,command.length) , { type: 'text', permissionOverwrites: permissionOverwriteArray,reason: 'nuke' , parent: a});
+        message.guild.channels.create(command.slice(4,command.length) , { type: 'text', permissionOverwrites: permissionOverwriteArray,reason: 'nuke' , parent: a, position: b});
     }
     else if(command.slice(0,4) === 'nuke'){
         message.channel.send("You cannot nuke this channel.");
