@@ -205,6 +205,9 @@ client.on('message', message =>{
     else if(command.slice(0,4) === 'nuke'){
         message.channel.send("You cannot nuke this channel.");
     }
+    if(command === 'prevail'){
+        message.channel.send({files: ["prevail.mp3"]});
+    }
 });
 
 client.login('NzcyOTMwNjM0MTg3NDA3MzYw.X6B1vw.0r6G919GLZDsvxPRputw8e0EGH8');
