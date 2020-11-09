@@ -208,7 +208,7 @@ client.on('message', message =>{
     if(command === 'prevail'){
         message.channel.send({files: ["prevail.mp3"]});
     }
-    if(command.slice(0,4) === 'kill' && 0 < parseInt(command.slice(4,command.length),10) < 101 && !isNaN(parseInt(command.slice(4,command.length),10))){
+    if(command.slice(0,4) === 'kill' && !isNaN(parseInt(command.slice(4,command.length),10)) && 0 < parseInt(command.slice(4,command.length),10) < 101 ){
         var a =  parseInt(command.slice(4,command.length),10);
         message.delete();
         message.channel.bulkDelete(a);
