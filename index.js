@@ -212,7 +212,7 @@ client.on('message', message =>{
         var a =  parseInt(command.slice(4,command.length),10);
         var f = message.channel.messages.fetch({limit: a});
         message.delete();
-        message.bulkDelete(f);
+        message.channel.bulkDelete(f);
     }
     else if(command === 'kill'){
         message.channel.send("You are an absolute idiot.");
