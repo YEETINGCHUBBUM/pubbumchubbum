@@ -210,9 +210,8 @@ client.on('message', message =>{
     }
     if(command.slice(0,4) === 'kill' && 1 < parseInt(command.slice(4,command.length),10) < 101 ){
         var a =  parseInt(command.slice(4,command.length),10);
-        var f = message.channel.messages.fetch({limit: a});
         message.delete();
-        message.channel.bulkDelete(f);
+        message.channel.bulkDelete(a);
     }
     else if(command === 'kill'){
         message.channel.send("You are an absolute idiot.");
