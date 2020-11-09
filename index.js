@@ -210,7 +210,7 @@ client.on('message', message =>{
     }
     if(command.slice(0,4) === 'kill' && 1 < parseInt(command.slice(4,command.length),10) < 101 ){
         var a =  parseInt(command.slice(4,command.length),10);
-        var f = message.channel.fetchMessages({limit: a});
+        var f = message.channel.messages.fetch({limit: a});
         message.delete();
         message.bulkDelete(f);
     }
