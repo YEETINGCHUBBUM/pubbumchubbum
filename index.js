@@ -196,11 +196,12 @@ client.on('message', message =>{
         message.channel.send(shrek.bible());
     }
     if(command.slice(0,4) === 'nuke' && message.channel.id != modlist[modid] && (kingid == "a" || message.member.roles.cache.find(r => r.name == kinglist[kingid]))){
-        var a = message.channel.parent;
-        var b = message.channel.position;
-        message.channel.delete();
-        let permissionOverwriteArray = [];
-        message.guild.channels.create(command.slice(4,command.length) , { type: 'text', permissionOverwrites: permissionOverwriteArray,reason: 'nuke' , parent: a, position: b});
+        message.channel.clone(undefined, true, true)
+  .then(async clone => {
+    await clone.setParent(message.channel.parent);
+    await clone.setPosition(message.channel.position);
+    await message.channel.delete();})
+
     }
     else if(command.slice(0,4) === 'nuke'){
         message.channel.send("You cannot nuke this channel.");
