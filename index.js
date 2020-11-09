@@ -208,6 +208,15 @@ client.on('message', message =>{
     if(command === 'prevail'){
         message.channel.send({files: ["prevail.mp3"]});
     }
+    if(command.slice(0,4) === 'kill' && 1 < parseInt(command.slice(4,command.length),10) < 101 ){
+        var a =  parseInt(command.slice(4,command.length),10);
+        var f = message.channel.fetchMessages({limit: a});
+        message.delete();
+        message.bulkDelete(f);
+    }
+    else if(command === 'kill'){
+        message.channel.send("You are an absolute idiot.");
+    }
 });
 
 client.login('NzcyOTMwNjM0MTg3NDA3MzYw.X6B1vw.0r6G919GLZDsvxPRputw8e0EGH8');
