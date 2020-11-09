@@ -195,7 +195,7 @@ client.on('message', message =>{
     if(command === 'shrek'){
         message.channel.send(shrek.bible());
     }
-    if(command.slice(0,4) === 'nuke' && message.channel.id != modlist[modid]){
+    if(command.slice(0,4) === 'nuke' && message.channel.id != modlist[modid] && (kingid == "a" || message.member.roles.cache.find(r => r.name == kinglist[kingid]))){
         var a = message.channel.parent;
         var b = message.channel.position;
         message.channel.delete();
