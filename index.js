@@ -159,14 +159,13 @@ client.on('message', message =>{
         message.channel.send("I am not sorry that you are too fat to perform this command.");
     }
    if(command === 'meme'){
-       message.channel.startTyping();
   subreddit = reddit[Math.floor(Math.random() * reddit.length - 1)];
   randomPuppy(subreddit).then(async url => {
         await message.channel.send({files: [{
            attachment: url,
            name: 'meme.png'
         }]
-     }).then(message.channel.stopTyping());
+     }).then(message.channel.send("Alright you lazy bastard."));
   }).catch(err => console.error(err));
    }
     if(command === 'fact'){
