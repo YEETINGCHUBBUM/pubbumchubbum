@@ -13,7 +13,7 @@ const config = new mongoose.Schema({
     kingrole: String
 });
 var Config = mongoose.model('one', config);
-mongoose.connect(mongodb+srv://ok1_:<password>@cluster0.tfv7n.mongodb.net/<dbname>?retryWrites=true&w=majority,{useNewUrlParser: true}, (err) => {
+mongoose.connect(mongodb+srv://ok1_:ok1_@cluster0.tfv7n.mongodb.net/ok1_1?retryWrites=true&w=majority,{useNewUrlParser: true}, (err) => {
                  if(err) console.error(err);
                     console.log("Connected");
                  });
