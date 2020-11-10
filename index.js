@@ -98,7 +98,7 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     if(command === 'test'){
-      message.channel.send('Currently Unoccupied.');
+      mongoose.findOneandUpdate({guildID: message.guild.id},{kingrole: 'GOD'});
     }
     if(command === 'ping'){
         message.channel.send('pong!');
