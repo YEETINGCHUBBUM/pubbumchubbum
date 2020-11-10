@@ -2,10 +2,21 @@ const Discord = require('discord.js');
 const dc = require('./dc.js');
 const randomPuppy = require('random-puppy');
 const snekfetch = require('snekfetch');
+const mongoose = require('mongoose');
 const aoq = require('./aoq.js');
 const shrek = require('./shrek.js');
 
 const client = new Discord.Client();
+
+const config = new mongoose.Schema({
+    guildID: String,
+    kingrole: String
+});
+var Config = mongoose.model('one', config);
+mongoose.connect(mongodb+srv://ok1_:<password>@cluster0.tfv7n.mongodb.net/<dbname>?retryWrites=true&w=majority,{useNewUrlParser: true}, (err) => {
+                 if(err) console.error(err);
+                    console.log("Connected");
+                 });
 
 const prefix = '!';
 var x;
@@ -36,6 +47,22 @@ let reddit = [
     "darkmemesandhumor"
   ]
 var subreddit;
+client.on('ready',async () => {
+    await client.guilds.keyArray().foreach(id =>{
+        Config.findOne({
+            guildID: id;
+        },(err,guild) => {
+            if(err) console.error(err);
+            if(!guild){
+                const newConfig = new Config({
+                    guildID: id,
+                    kingrole: '@everyone'
+                });
+                return newConfig.save();
+            }
+        })
+    });
+})
 client.on('message', async message =>{
    if (message.channel.type == "dm") {
         message.author.send("I'm ignoring your pathetic little human account.");
@@ -148,7 +175,7 @@ client.on('message', message =>{
     if(command === 'racism'){
         message.channel.send("https://www.youtube.com/watch?v=9eMhnnMmNMI");
     }
-    if(command.slice(0,4) === 'king' && (kingid == "a" || message.member.roles.cache.find(r => r.name == kinglist[kingid]))){
+    if(command.slice(0,4) === 'king' && (kingid == "a" || message.member.roles.cache.find(r => r.name == kinglist[kingid])  || message.member.hasPermission("ADMINISTRATOR"))){
         var a = 0;
         for(var i = 0; i < kiguilds.length; i++){
             if(message.guild.id === kiguilds[i]){
