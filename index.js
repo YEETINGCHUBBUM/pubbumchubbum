@@ -50,7 +50,7 @@ var subreddit;
 client.on('ready',async () => {
     await client.guilds.keyArray().foreach(id =>{
         Config.findOne({
-            guildID: id;
+            guildID: id
         },(err,guild) => {
             if(err) console.error(err);
             if(!guild){
