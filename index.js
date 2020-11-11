@@ -99,7 +99,7 @@ client.on('message',async message =>{
     const command = args.shift().toLowerCase();
     if(command === 'test'){
     var a = Config.findOneAndUpdate({guildID: message.guild.id},{kingrole: 'GOD'});
-     await a.save();
+     await Config.save();
     }
     if(command === 'ping'){
         message.channel.send('pong!');
