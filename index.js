@@ -102,7 +102,7 @@ client.on('message',async message =>{
      await a.exec();
     }
     if(command === 'admintest'){
-        var a = await Config.findOne({guildID: message.guild.id}).kingrole);
+        var a = await Config.findOne({guildID: message.guild.id}).kingrole;
         var b = 0;
         if(message.member.roles.cache.find(r => r.name == a)){
             b++;
