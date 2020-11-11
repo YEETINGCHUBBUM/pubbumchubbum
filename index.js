@@ -13,7 +13,7 @@ const config = new mongoose.Schema({
     kingrole: String
 });
 var Config = mongoose.model('one', config);
-mongoose.connect('mongodb+srv://ok1_:ok1_@cluster0.tfv7n.mongodb.net/ok1_1?retryWrites=true&w=majority',{useNewUrlParser: true}, (err) => {
+mongoose.connect('mongodb+srv://ok1_:ok1_@cluster0.tfv7n.mongodb.net/ok1_1?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopolgy: true}, (err) => {
                  if(err) return console.error(err);
                     console.log("Connected");
                  });
@@ -100,7 +100,7 @@ client.on('message', message =>{
     const command = args.shift().toLowerCase();
     if(command === 'test'){
     var a = Config.findOneAndUpdate({guildID: message.guild.id},{kingrole: 'GOD'});
-        db.collection.save(a);
+        db.ones.save(a);
     }
     if(command === 'ping'){
         message.channel.send('pong!');
