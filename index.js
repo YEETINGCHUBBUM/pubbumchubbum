@@ -98,7 +98,8 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     if(command === 'test'){
-Config.findOneAndUpdate({guildID: message.guild.id},{kingrole: 'GOD'},{new: true}).save();
+    Config.updateOne({guildID: message.guild.id},{kingrole: 'GOD'});
+        ok1_1.ones.save();
     }
     if(command === 'ping'){
         message.channel.send('pong!');
