@@ -101,8 +101,19 @@ client.on('message',async message =>{
     var a = Config.findOneAndUpdate({guildID: message.guild.id},{kingrole: command.slice(4,command.length)});
      await a.exec();
     }
-    if(command === 'admintest' && message.member.roles.cache.find(r => r.name.toLowerCase() == Config.findOne({guildID: message.guild.id}).kingrole)){
-        message.channel.send("yeeeeeeeeeeet");
+    if(command === 'admintest'){
+        await var a = Config.findOne({guildID: message.guild.id}).kingrole;
+        var b = 0;
+        if(message.member.roles.cache.find(r => r.name == a)){
+            b++;
+         }
+        if(b == 1){
+            message.channel.send("Pass");
+        }
+        else{
+            message.channel.send("Fail");
+        }
+        console.log("admintest");
     }
     if(command === 'ping'){
         message.channel.send('pong!');
