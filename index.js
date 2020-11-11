@@ -68,7 +68,7 @@ client.on('message', async message =>{
         message.author.send("I'm ignoring your pathetic little human account.");
     }
 })
-client.on('message', message =>{
+client.on('message',async message =>{
    at = 0;
    if(!message.author.bot){
     at = 0;
@@ -99,7 +99,7 @@ client.on('message', message =>{
     const command = args.shift().toLowerCase();
     if(command === 'test'){
     var a = Config.findOneAndUpdate({guildID: message.guild.id},{kingrole: 'GOD'});
-     a.save();
+     await a.save();
     }
     if(command === 'ping'){
         message.channel.send('pong!');
