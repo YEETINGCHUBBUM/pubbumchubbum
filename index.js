@@ -102,7 +102,8 @@ client.on('message',async message =>{
      await a.exec();
     }
     if(command === 'admintest'){
-        var a = await Config.findOne({guildID: message.guild.id}).kingrole;
+        var a = Config.findOne({guildID: message.guild.id}).kingrole;
+        await a.exec();
         if(message.member.roles.cache.find(r => r.name == a)){
             message.channel.send("Pass");
         }
