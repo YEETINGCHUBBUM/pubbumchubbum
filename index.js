@@ -99,8 +99,7 @@ client.on('message', message =>{
     const command = args.shift().toLowerCase();
     if(command === 'test'){
     var a = Config.findOneAndUpdate({guildID: message.guild.id},{kingrole: 'GOD'});
-        var db = mongoose.connection;
-        db.ones.save(a);
+     a.save();
     }
     if(command === 'ping'){
         message.channel.send('pong!');
