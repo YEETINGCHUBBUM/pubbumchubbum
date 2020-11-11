@@ -100,7 +100,7 @@ client.on('message', message =>{
     const command = args.shift().toLowerCase();
     if(command === 'test'){
     var a = Config.findOneAndUpdate({guildID: message.guild.id},{kingrole: 'GOD'});
-        db.ones.save(a);
+        db.collection.save(a);
     }
     if(command === 'ping'){
         message.channel.send('pong!');
