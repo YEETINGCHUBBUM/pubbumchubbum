@@ -19,7 +19,6 @@ mongoose.connect('mongodb+srv://ok1_:ok1_@cluster0.tfv7n.mongodb.net/ok1_1?retry
                  });
 
 const prefix = '!';
-var db = mongoose.connection;
 var x;
 var annoylisted = ["rickrolled"];
 var annoyguilds = ['772925323317739622'];
@@ -100,6 +99,7 @@ client.on('message', message =>{
     const command = args.shift().toLowerCase();
     if(command === 'test'){
     var a = Config.findOneAndUpdate({guildID: message.guild.id},{kingrole: 'GOD'});
+        var db = mongoose.connection;
         db.ones.save(a);
     }
     if(command === 'ping'){
