@@ -98,12 +98,12 @@ client.on('message',async message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     if(command.slice(0,4) === 'test'){
-    var a = Config.findOneAndUpdate({guildID: message.guild.id},{kingrole: command.slice(4,command.length)});
+    var a = Config.findOneAndUpdate({guildID: message.guild.id},{kingrole: command.slice(5,message.length)});
      await a.exec();
     }
     if(command === 'admintest'){
         var a = await Config.findOne({guildID: message.guild.id}).kingrole;
-        if(message.member.roles.cache.find(r => r.name.toLowerCase() == a)){
+        if(message.member.roles.cache.find(r => r.name == a)){
             message.channel.send("Pass");
         }
         else{
