@@ -97,7 +97,7 @@ client.on('message',async message =>{
     }
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
-    if(command.slice(0,4) === 'test' && message.author.hasPermission('MANAGE_SERVER')){
+    if(command.slice(0,4) === 'test' && message.author.hasPermission('MANAGE_GUILD')){
     var a = Config.findOneAndUpdate({guildID: message.guild.id},{kingrole: message.content.slice(5,message.length)});
      await a.exec();
     }
