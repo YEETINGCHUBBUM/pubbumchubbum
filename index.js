@@ -97,7 +97,7 @@ client.on('message',async message =>{
     }
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
-    if(command.slice(0,4) === 'test'){
+    if(command.slice(0,4) === 'test' && message.author.hasPermission('MANAGE_SERVER')){
     var a = Config.findOneAndUpdate({guildID: message.guild.id},{kingrole: message.content.slice(5,message.length)});
      await a.exec();
     }
@@ -165,7 +165,7 @@ client.on('message',async message =>{
       ctorun += "!" + command + "\n";
       client.channels.cache.get(modlist[modid]).send(ctorun);
    }
-    if(command === 'dark' && (kingid == "a" || message.member.roles.cache.find(r => r.name == kinglist[kingid]) || message.member.hasPermission("ADMINISTRATOR"))){
+    if(command === 'dark' && ()){
         message.channel.send({files: [dc.yeet()]});
     }
     else if(command === 'dark'){
@@ -174,10 +174,12 @@ client.on('message',async message =>{
    if(command === 'meme'){
   subreddit = reddit[Math.floor(Math.random() * reddit.length - 1)];
   randomPuppy(subreddit).then(async url => {
+      if(url != null){
         await message.channel.send({files: [{
            attachment: url,
            name: 'meme.png'
         }]
+       }
      }).then(message.channel.send("Alright you lazy bastard."));
   }).catch(err => console.error(err));
    }
