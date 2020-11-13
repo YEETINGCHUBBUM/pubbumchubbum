@@ -165,11 +165,14 @@ client.on('message',async message =>{
       ctorun += "!" + command + "\n";
       client.channels.cache.get(modlist[modid]).send(ctorun);
    }
-    if(command === 'dark' && ()){
-        message.channel.send({files: [dc.yeet()]});
-    }
-    else if(command === 'dark'){
-        message.channel.send("I am not sorry that you are too fat to perform this command.");
+    if(command === 'dark'){
+        let a = await Config.findOne({guildID: message.guild.id});
+        if(message.member.roles.cache.find(r => r.name == a.kingrole)){
+             message.channel.send({files: [dc.yeet()]});
+        }
+        else{
+             message.channel.send("I am not sorry you are too fat to perform this command.");
+        }
     }
    if(command === 'meme'){
   subreddit = reddit[Math.floor(Math.random() * reddit.length - 1)];
