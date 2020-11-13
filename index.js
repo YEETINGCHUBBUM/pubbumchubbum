@@ -182,8 +182,9 @@ client.on('message',async message =>{
            attachment: url,
            name: 'meme.png'
         }]
-       }
+       
      }).then(message.channel.send("Alright you lazy bastard."));
+      }
   }).catch(err => console.error(err));
    }
     if(command === 'fact'){
