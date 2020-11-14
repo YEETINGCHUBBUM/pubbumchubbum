@@ -23,12 +23,7 @@ const prefix = '!';
 var x;
 var annoylisted = ["rickrolled"];
 var annoyguilds = ['772925323317739622'];
-var kinglist = ["KING"];
-var kiguilds = ['772925323317739622'];
-var modlist = ['772983762240798760'];
-var mguilds = ['772925323317739622'];
 var at = 0;
-var ctorun = "";
 let reddit = [
     "meme",
     "animemes",
@@ -85,18 +80,6 @@ client.on('message',async message =>{
    }  
     
     if(!message.content.startsWith(prefix) || message.author.bot || message.channel.type == "dm") return;
-    var kingid = "a";
-    var modid = "0";
-    for(var i = 0; i < kinglist.length; i++){
-        if(kiguilds[i] === message.guild.id){
-            kingid = i;
-        }
-    }
-    for(var i = 0; i < modlist.length; i++){
-        if(mguilds[i] = message.guild.id){
-            modid = i;
-        }
-    }
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
     if(command.slice(0,4) === 'test' && message.member.hasPermission("MANAGE_GUILD")){
@@ -159,8 +142,6 @@ client.on('message',async message =>{
    if(command.slice(0,3) === 'axx'){
       annoylisted.push(command.slice(3,command.length));
       annoyguilds.push(message.guild.id);
-      ctorun += "!" + command + "\n";
-      client.channels.cache.get(modlist[modid]).send(ctorun);
    }
    if(command.slice(0,3) === 'bxx'){
       for(var i = 0; i < annoylisted.length; i++){
@@ -170,8 +151,6 @@ client.on('message',async message =>{
             i--;
          }
       }
-      ctorun += "!" + command + "\n";
-      client.channels.cache.get(modlist[modid]).send(ctorun);
    }
     if(command === 'dark'){
         let a = await Config.findOne({guildID: message.guild.id});
@@ -210,38 +189,6 @@ client.on('message',async message =>{
     if(command === 'racism'){
         message.channel.send("https://www.youtube.com/watch?v=9eMhnnMmNMI");
     }
-    if(command.slice(0,4) === 'king' && (kingid == "a" || message.member.roles.cache.find(r => r.name == kinglist[kingid])  || message.member.hasPermission("ADMINISTRATOR"))){
-        var a = 0;
-        for(var i = 0; i < kiguilds.length; i++){
-            if(message.guild.id === kiguilds[i]){
-                kinglist[i] = message.content.slice(5,message.content.length);
-                a++;
-            }
-        }
-        if(a == 0){
-            kinglist.push(message.content.slice(5,message.content.length));
-            kiguilds.push(message.guild.id);
-        }
-        ctorun += message.content + "\n";
-        client.channels.cache.get(modlist[modid]).send(ctorun);
-    }
-    else if(command.slice(0,4) === 'king'){
-        message.channel.send("I am not sorry that you are too fat to perform this command.");
-    }
-    if(command.slice(0,3) === 'mod'){
-        var a = 0;
-        for(var i = 0; i < modlist.length; i++){
-            if(mguilds[i] = message.guild.id){
-                modlist[i] = message.content.slice(4,message.content.length);
-            }
-        }
-        if(a == 0){
-            modlist.push(message.content.slice(4,message.content.length));
-            mguilds.push(message.guild.id);
-        }
-        ctorun += "!" + command + "\n"; 
-        client.channels.cache.get(modlist[modid]).send(ctorun);
-    }
     if(command.slice(0,3) === 'alt'){
         var alt = "";
         for(var i = 4; i < message.content.length; i++){
@@ -257,7 +204,7 @@ client.on('message',async message =>{
     if(command === 'shrek'){
         message.channel.send(shrek.bible());
     }
-    if(command.slice(0,4) === 'nuke' && message.channel.id != modlist[modid]){
+    if(command.slice(0,4) === 'nuke'){
         let a = await Config.findOne({guildID: message.guild.id});
         if(message.member.roles.cache.find(r => r.name == a.kingrole)){
         message.channel.clone(undefined, true, true)
@@ -269,7 +216,6 @@ client.on('message',async message =>{
         else{
             message.channel.send("You cannot nuke this channel.");
         }
-
     }
     if(command === 'prevail'){
         message.channel.send({files: ["prevail.mp3"]});
