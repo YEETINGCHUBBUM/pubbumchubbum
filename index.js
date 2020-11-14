@@ -10,7 +10,8 @@ const client = new Discord.Client();
 
 const config = new mongoose.Schema({
     guildID: String,
-    kingrole: String
+    kingrole: String,
+    appropriate: String
 });
 var Config = mongoose.model('one', config);
 mongoose.connect('mongodb+srv://ok1_:ok1_@cluster0.tfv7n.mongodb.net/ok1_1?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true}, (err) => {
@@ -56,7 +57,8 @@ client.on('ready',async () => {
             if(!guild){
                 const newConfig = new Config({
                     guildID: id,
-                    kingrole: '@everyone'
+                    kingrole: '@everyone',
+                    appropriate: '0',
                 });
                 return newConfig.save();
             }
@@ -110,6 +112,12 @@ client.on('message',async message =>{
             message.channel.send("Fail");
         }
         console.log("admintest");
+    }
+    if(command === 'appropriate'){
+        await Config.updateOne({guildID: message.guild.id},{appropriate: '0'});   
+    }
+     if(command === 'inappropriate'){
+        await Config.updateOne({guildID: message.guild.id},{appropriate: '1'});
     }
     if(command === 'ping'){
         message.channel.send('pong!');
@@ -175,6 +183,14 @@ client.on('message',async message =>{
         }
     }
    if(command === 'meme'){
+       var b;
+       let a = await Config.findOne({guildID: message.guild.id});
+        if(a.appropriate === '0'){
+             b = "bastard";
+        }
+        else{
+             b = "child";
+        }
   subreddit = reddit[Math.floor(Math.random() * reddit.length - 1)];
   randomPuppy(subreddit).then(async url => {
       if(url != null){
@@ -183,7 +199,7 @@ client.on('message',async message =>{
            name: 'meme.png'
         }]
        
-     }).then(message.channel.send("Alright you lazy bastard."));
+     }).then(message.channel.send("Alright you lazy ${b}."));
       }
   }).catch(err => console.error(err));
    }
