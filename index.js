@@ -241,16 +241,19 @@ client.on('message',async message =>{
     if(command === 'shrek'){
         message.channel.send(shrek.bible());
     }
-    if(command.slice(0,4) === 'nuke' && message.channel.id != modlist[modid] && (kingid == "a" || message.member.roles.cache.find(r => r.name == kinglist[kingid]))){
+    if(command.slice(0,4) === 'nuke' && message.channel.id != modlist[modid]){
+        let a = await Config.findOne({guildID: message.guild.id});
+        if(message.member.roles.cache.find(r => r.name == a.kingrole)){
         message.channel.clone(undefined, true, true)
   .then(async clone => {
     await clone.setParent(message.channel.parent);
     await clone.setPosition(message.channel.position);
     await message.channel.delete();})
+        }
+        else{
+            message.channel.send("You cannot nuke this channel.");
+        }
 
-    }
-    else if(command.slice(0,4) === 'nuke'){
-        message.channel.send("You cannot nuke this channel.");
     }
     if(command === 'prevail'){
         message.channel.send({files: ["prevail.mp3"]});
