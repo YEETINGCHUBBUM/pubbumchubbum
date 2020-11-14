@@ -86,6 +86,9 @@ client.on('message',async message =>{
     var a = Config.findOneAndUpdate({guildID: message.guild.id},{kingrole: message.content.slice(5,message.length)});
      await a.exec();
     }
+    else if(command === 'test'){
+        message.channel.send("DAMMMMMMNNNNNNNNNNNNN U STUPID STFU");
+    }
     if(command === 'admintest'){
         let a = await Config.findOne({guildID: message.guild.id});
         if(message.member.roles.cache.find(r => r.name == a.kingrole)){
