@@ -199,7 +199,7 @@ client.on('message',async message =>{
            name: 'meme.png'
         }]
        
-     }).then(message.channel.send("Alright you lazy ${b}."));
+     }).then(message.channel.send(`Alright you lazy ${b}.`));
       }
   }).catch(err => console.error(err));
    }
