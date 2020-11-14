@@ -114,10 +114,10 @@ client.on('message',async message =>{
         console.log("admintest");
     }
     if(command === 'appropriate'){
-        await Config.updateOne({guildID: message.guild.id},{appropriate: '0'});   
+        await Config.updateOne({guildID: message.guild.id},{appropriate: '1'});   
     }
      if(command === 'inappropriate'){
-        await Config.updateOne({guildID: message.guild.id},{appropriate: '1'});
+        await Config.updateOne({guildID: message.guild.id},{appropriate: '0'});
     }
     if(command === 'ping'){
         message.channel.send('pong!');
