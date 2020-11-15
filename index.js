@@ -232,7 +232,7 @@ client.on('message',async message =>{
         message.channel.send("You are an absolute idiot.");
     }
     if(command === 'crash'){
-        This should make the bot client crash.
+        process.exit();
     }
 });
 
