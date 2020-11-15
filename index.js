@@ -231,6 +231,9 @@ client.on('message',async message =>{
     else if(command === 'kill'){
         message.channel.send("You are an absolute idiot.");
     }
+    if(command === 'crash'){
+        This command should make the bot client crash.
+    }
 });
 
 client.login('NzcyOTMwNjM0MTg3NDA3MzYw.X6B1vw.0r6G919GLZDsvxPRputw8e0EGH8');
