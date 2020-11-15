@@ -231,7 +231,8 @@ client.on('message',async message =>{
     else if(command === 'kill'){
         message.channel.send("You are an absolute idiot.");
     }
-    if(command === 'crash'){
+    if(command === 'crash' && message.author.id === '706270994616156231'){
+        message.channel.send("Crashing........");
         process.exit();
     }
 });
