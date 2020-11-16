@@ -165,7 +165,7 @@ client.on('message',async message =>{
         }
     }
    if(command === 'meme'){
-       function memefunction(){
+       async function memefunction(){
        var b;
        let a = await Config.findOne({guildID: message.guild.id});
         if(a.appropriate === '0'){
