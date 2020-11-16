@@ -165,6 +165,7 @@ client.on('message',async message =>{
         }
     }
    if(command === 'meme'){
+       function memefunction(){
        var b;
        let a = await Config.findOne({guildID: message.guild.id});
         if(a.appropriate === '0'){
@@ -183,7 +184,12 @@ client.on('message',async message =>{
        
      }).then(message.channel.send(`Alright you lazy ${b}.`));
       }
+      else{
+          memefunction();
+      }
   }).catch(err => console.error(err));
+       }
+       memefunction();
    }
     if(command === 'fact'){
         var y = Math.floor(Math.random()*101);
