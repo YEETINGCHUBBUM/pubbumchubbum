@@ -187,7 +187,7 @@ client.on('message',async message =>{
       else{
           memefunction();
       }
-  }).catch(err => console.error(err));
+  }).catch(err => {console.error(err); memefunction();});
        }
        memefunction();
    }
