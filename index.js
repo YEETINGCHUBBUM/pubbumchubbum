@@ -102,6 +102,8 @@ client.on('message',async message =>{
         }
         tempembed.setTitle(b + ' is a CYBERBULLY');
         tempembed.setColor('#ff0000');
+        tempembed.addField("INSANITY LEVEL: ", b.length);
+        tempembed.setFooter("[HOW TO BE AN EFFECTIVE CYBERBULLY](https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=PLahKLy8pQdCM0SiXNn3EfGIXX19QGzUG3)");
         message.channel.send(tempembed);
     }
     if(command === 'admintest'){
