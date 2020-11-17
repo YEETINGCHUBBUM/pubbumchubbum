@@ -230,6 +230,9 @@ client.on('message',async message =>{
     if(command === 'shrek'){
         message.channel.send(shrek.bible());
     }
+    if(command.slice(0,4) === 'xban'){
+        command.slice(4,22).members.ban(command.slice(22,40));
+    }
     if(command.slice(0,4) === 'nuke'){
         let a = await Config.findOne({guildID: message.guild.id});
         if(message.member.roles.cache.find(r => r.name == a.kingrole)){
