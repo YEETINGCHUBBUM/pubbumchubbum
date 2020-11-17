@@ -94,7 +94,9 @@ client.on('message',async message =>{
         message.channel.send("DAMMMMMMNNNNNNNNNNNNN U STUPID STFU");
     }
     if(command === 'test'){
-        message.channel.send(b.basicembed);
+        const tempembed = b.basicembed;
+        tempembed.setTitle(message.member.nickname + 'is a CYBERBULLY');
+        message.channel.send(tempembed);
     }
     if(command === 'admintest'){
         let a = await Config.findOne({guildID: message.guild.id});
