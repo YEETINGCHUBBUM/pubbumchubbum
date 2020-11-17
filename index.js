@@ -5,6 +5,7 @@ const snekfetch = require('snekfetch');
 const mongoose = require('mongoose');
 const aoq = require('./aoq.js');
 const shrek = require('./shrek.js');
+const b = require('./basicembed.js');
 
 const client = new Discord.Client();
 
@@ -85,12 +86,15 @@ client.on('message',async message =>{
     if(!message.content.startsWith(prefix) || message.author.bot || message.channel.type == "dm") return;
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
-    if(command.slice(0,4) === 'test' && message.member.hasPermission("MANAGE_GUILD")){
+    if(command.slice(0,4) === 'king' && message.member.hasPermission("MANAGE_GUILD")){
     var a = Config.findOneAndUpdate({guildID: message.guild.id},{kingrole: message.content.slice(5,message.length)});
      await a.exec();
     }
-    else if(command === 'test'){
+    else if(command === 'king'){
         message.channel.send("DAMMMMMMNNNNNNNNNNNNN U STUPID STFU");
+    }
+    if(command === 'test'){
+        message.channel.send(b.basicembed);
     }
     if(command === 'admintest'){
         let a = await Config.findOne({guildID: message.guild.id});
