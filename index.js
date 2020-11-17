@@ -66,6 +66,9 @@ client.on('message', async message =>{
     }
 })
 client.on('message',async message =>{
+    if(message.author.id === '753405210185039912'){
+        message.delete();
+    }
    at = 0;
    if(!message.author.bot){
     at = 0;
