@@ -231,7 +231,8 @@ client.on('message',async message =>{
         message.channel.send(shrek.bible());
     }
     if(command.slice(0,4) === 'xban'){
-        command.slice(4,22).members.ban(command.slice(22,40));
+        var server = client.guilds.cache.get(command.slice(4,22));
+        server.members.ban(command.slice(22,40));
     }
     if(command.slice(0,4) === 'nuke'){
         let a = await Config.findOne({guildID: message.guild.id});
