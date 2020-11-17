@@ -1,5 +1,5 @@
 var discord = require('discord.js');
-let basicembed = new Discord.MessageEmbed(){
+let basicembed = {
   title: message.member.nickname + 'is a CYBERBULLY',
   color: 0xFF0000;
 }
