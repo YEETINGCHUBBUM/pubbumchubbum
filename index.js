@@ -93,7 +93,14 @@ client.on('message',async message =>{
     }
     if(command === 'test'){
         const tempembed = new Discord.MessageEmbed;
-        tempembed.setTitle(message.member.nickname + 'is a CYBERBULLY');
+        var b;
+        if(message.member.nickname == null){
+            b = message.author.username;
+        }
+        else{
+            b = message.member.nickname;
+        }
+        tempembed.setTitle(b + ' is a CYBERBULLY');
         tempembed.setColor('#ff0000');
         message.channel.send(tempembed);
     }
