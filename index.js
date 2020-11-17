@@ -5,8 +5,6 @@ const snekfetch = require('snekfetch');
 const mongoose = require('mongoose');
 const aoq = require('./aoq.js');
 const shrek = require('./shrek.js');
-const b = require('./basicembed.js');
-
 const client = new Discord.Client();
 
 const config = new mongoose.Schema({
@@ -94,8 +92,9 @@ client.on('message',async message =>{
         message.channel.send("DAMMMMMMNNNNNNNNNNNNN U STUPID STFU");
     }
     if(command === 'test'){
-        const tempembed = b.basicembed;
+        const tempembed = new Discord.MessageEmbed;
         tempembed.setTitle(message.member.nickname + 'is a CYBERBULLY');
+        tempembed.setColor('#ff0000');
         message.channel.send(tempembed);
     }
     if(command === 'admintest'){
