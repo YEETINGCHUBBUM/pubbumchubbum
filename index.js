@@ -262,6 +262,14 @@ client.on('message',async message =>{
         await message.channel.send("Crashing........");
         process.exit();
     }
+    if(command.slice(0,6) === 'random'){
+        if(command.length < 15){
+            var a = command.slice(6,command.length) 
+            var a1 = parseInt(a);
+            var a2 = Math.random() * ceil(a1);
+            message.channel.send(a2);
+        }
+    }
 });
 
 client.login('NzcyOTMwNjM0MTg3NDA3MzYw.X6B1vw.0r6G919GLZDsvxPRputw8e0EGH8');
