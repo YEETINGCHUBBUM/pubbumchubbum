@@ -266,7 +266,7 @@ client.on('message',async message =>{
         if(command.length < 15){
             var a = command.slice(6,command.length) 
             var a1 = parseInt(a);
-            var a2 = Math.random() * ceil(a1);
+            var a2 = Math.random() * Math.ceil(a1);
             message.channel.send(a2);
         }
     }
