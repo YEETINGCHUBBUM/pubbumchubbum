@@ -263,11 +263,22 @@ client.on('message',async message =>{
         process.exit();
     }
     if(command.slice(0,6) === 'random'){
-        if(command.length < 15){
+        if(command.length < 15 && command.length > 6){
             var a = command.slice(6,command.length) 
             var a1 = parseInt(a);
             var a2 = Math.random() * Math.ceil(a1);
-            message.channel.send(a2);
+            message.channel.send(Math.floor(a2));
+        }
+        else{
+            var b;
+            let c = await Config.findOne({guildID: message.guild.id});
+        if(c.appropriate === '0'){
+             b = "niggers";
+        }
+        else{
+             b = "idiots";
+        }
+            message.channel.send("CRASHING SYSTEMS.........  JK " + b + " CAN'T STOP ME!!!!");
         }
     }
 });
