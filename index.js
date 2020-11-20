@@ -19,6 +19,7 @@ mongoose.connect('mongodb+srv://ok1_:ok1_@cluster0.tfv7n.mongodb.net/ok1_1?retry
                  });
 
 const prefix = '!';
+var cgameids = [];
 var x;
 var annoylisted = ["rickrolled"];
 var annoyguilds = ['772925323317739622'];
@@ -234,6 +235,39 @@ client.on('message',async message =>{
         var server = client.guilds.cache.get(command.slice(4,22));
         server.members.ban(command.slice(22,40));
     }
+    if(command === 'play'){
+        cgameids.push(message.author.id);
+        message.channel.send("I have chosen a number between 0 and 100, try to guess it.");
+    }
+    if(command.slice(0,1) === 'p'){
+        if(command.length > 3){
+            message.channel.send("YOU GODDAMN FOOL, YOU EARNED 0 POINTS, AND YOU'RE AN IDIOT");
+        }
+        else{
+            var a = -1;
+            for(var i = 0; i < cgameids.length; i++){
+                if(cgameids[i] == message.author.id){
+                    a = i;
+                }
+            }
+            if(a != -1){
+                var x = Math.random();
+                var b = command.slice(1,3);
+                var b1 = parseInt(b);
+                var b2 = x - b1;
+                if(x - b1 == 0){
+                    message.channel.send("Right on!");
+                }
+                else{
+                    message.channel.send("Your score was: " + b2);
+                }
+                cgameids.splice(i,1);
+            }
+            else{
+                message.channel.send("Apparently, you need to start a game using !play");
+            }
+        }
+    }
     if(command.slice(0,4) === 'nuke'){
         let a = await Config.findOne({guildID: message.guild.id});
         if(message.member.roles.cache.find(r => r.name == a.kingrole)){
@@ -262,6 +296,9 @@ client.on('message',async message =>{
         await message.channel.send("Crashing........");
         process.exit();
     }
+    else{
+        message.channel.send("WEAKLINGS LIKE YOU DON'T HAVE ACCESS TO THOSE COMMANDS.");
+    }
     if(command.slice(0,6) === 'random'){
         if(command.length < 15 && command.length > 6){
             var a = command.slice(6,command.length) 
@@ -273,10 +310,10 @@ client.on('message',async message =>{
             var b;
             let c = await Config.findOne({guildID: message.guild.id});
         if(c.appropriate === '0'){
-             b = "niggers";
+             b = "NIGGERS";
         }
         else{
-             b = "idiots";
+             b = "IDIOTS";
         }
             message.channel.send("CRASHING SYSTEMS.........  JK " + b + " CAN'T STOP ME!!!!");
         }
