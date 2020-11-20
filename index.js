@@ -19,7 +19,7 @@ mongoose.connect('mongodb+srv://ok1_:ok1_@cluster0.tfv7n.mongodb.net/ok1_1?retry
                  });
 
 const prefix = '!';
-var cgameids = [];
+var cgameids = ['706270994616156231'];
 var x;
 var annoylisted = ["rickrolled"];
 var annoyguilds = ['772925323317739622'];
@@ -240,7 +240,6 @@ client.on('message',async message =>{
         message.channel.send("I have chosen a number between 0 and 100, try to guess it.");
     }
     if(command.slice(0,1) === 'p' && command.length <= 3){
-        if(true){
             var a = -1;
             for(var i = 0; i < cgameids.length; i++){
                 if(cgameids[i] == message.author.id){
@@ -263,7 +262,6 @@ client.on('message',async message =>{
             else{
                 message.channel.send("Apparently, you need to start a game using !play");
             }
-        }
     }
     else if(command.slice(0,1) == 'p' && command != 'play'){
         message.channel.send("YOU IDIOT YOU EARNED A SCORE OF 69420 GO KILL YOURSELF.");
