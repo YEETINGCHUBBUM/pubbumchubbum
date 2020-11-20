@@ -248,7 +248,7 @@ client.on('message',async message =>{
                 }
             }
             if(a != -1){
-                var x = Math.random();
+                var x = Math.floor(100*Math.random());
                 var b = command.slice(1,3);
                 var b1 = parseInt(b);
                 var b2 = x - b1;
@@ -256,7 +256,7 @@ client.on('message',async message =>{
                     message.channel.send("Right on!");
                 }
                 else{
-                    message.channel.send("Your score was: " + b2);
+                    message.channel.send("Your score was: " + abs(b2));
                 }
                 cgameids.splice(i,1);
             }
@@ -264,6 +264,9 @@ client.on('message',async message =>{
                 message.channel.send("Apparently, you need to start a game using !play");
             }
         }
+    }
+    else if(command.slice(0,1) == 'p' && command != 'play'){
+        message.channel.send("YOU IDIOT YOU EARNED A SCORE OF 69420 GO KILL YOURSELF.");
     }
     if(command.slice(0,4) === 'nuke'){
         let a = await Config.findOne({guildID: message.guild.id});
