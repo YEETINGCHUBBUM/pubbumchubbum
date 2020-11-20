@@ -257,7 +257,7 @@ client.on('message',async message =>{
                 else{
                     message.channel.send("Your score was: " + Math.abs(b2));
                 }
-                cgameids.splice(i,1);
+                cgameids.splice(a,1);
             }
             else{
                 message.channel.send("Apparently, you need to start a game using !play");
