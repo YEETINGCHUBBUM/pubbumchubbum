@@ -239,10 +239,7 @@ client.on('message',async message =>{
         cgameids.push(message.author.id);
         message.channel.send("I have chosen a number between 0 and 100, try to guess it.");
     }
-    if(command.slice(0,1) === 'p'){
-        if(command.length > 3){
-            message.channel.send("YOU GODDAMN FOOL, YOU EARNED 0 POINTS, AND YOU'RE AN IDIOT");
-        }
+    if(command.slice(0,1) === 'p' && command.length <= 3){
         else{
             var a = -1;
             for(var i = 0; i < cgameids.length; i++){
@@ -296,7 +293,7 @@ client.on('message',async message =>{
         await message.channel.send("Crashing........");
         process.exit();
     }
-    else{
+    else if(command === 'crash'){
         message.channel.send("WEAKLINGS LIKE YOU DON'T HAVE ACCESS TO THOSE COMMANDS.");
     }
     if(command.slice(0,6) === 'random'){
