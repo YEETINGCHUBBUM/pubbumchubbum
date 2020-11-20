@@ -240,7 +240,7 @@ client.on('message',async message =>{
         message.channel.send("I have chosen a number between 0 and 100, try to guess it.");
     }
     if(command.slice(0,1) === 'p' && command.length <= 3){
-        else{
+        if(true){
             var a = -1;
             for(var i = 0; i < cgameids.length; i++){
                 if(cgameids[i] == message.author.id){
