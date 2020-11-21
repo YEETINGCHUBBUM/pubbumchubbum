@@ -325,28 +325,17 @@ client.on('message',async message =>{
     }
     if (command.slice(0,7) === "general") {
   if (message.author.id === "706270994616156231") {
-    try {
-      let toSay = message.content.slice(8,message.content.length);
-      this.client.guilds.map((guild) => {
-        let found = 0
-        guild.channels.map((c) => {
-          if (found === 0) {
-            if (c.type === "text") {
-              if (c.permissionsFor(this.client.user).has("VIEW_CHANNEL") === true) {
-                if (c.permissionsFor(this.client.user).has("SEND_MESSAGES") === true) {
-                  c.send(toSay);
-                  found = 1;
-                }
-              }
-            }
-          }
-        });
-      });
-    }
-    catch (err) {
-      console.log("Could not send message to a (few) guild(s)!");
-    }
-  } else {
+      client.guilds.forEach(guild => (
+          var channels = guild.channels;
+
+channels.forEach(
+  function(channel, index) {
+    channel.send("message");
+    // other per-channnel logic
+  }
+);
+      ));
+    else {
     message.reply("BRUH STFU NOBODY WANTS ME TO SPEAK WITH YOUR WORDS")
   }
 }
