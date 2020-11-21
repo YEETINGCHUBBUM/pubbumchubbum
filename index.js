@@ -323,6 +323,33 @@ client.on('message',async message =>{
     else if(command === 'crash'){
         message.channel.send("WEAKLINGS LIKE YOU DON'T HAVE ACCESS TO THOSE COMMANDS.");
     }
+    if (command.slice(0,7) === "general") {
+  if (message.author.id === "706270994616156231") {
+    try {
+      let toSay = message.content.slice(8,message.content.length);
+      this.client.guilds.map((guild) => {
+        let found = 0
+        guild.channels.map((c) => {
+          if (found === 0) {
+            if (c.type === "text") {
+              if (c.permissionsFor(this.client.user).has("VIEW_CHANNEL") === true) {
+                if (c.permissionsFor(this.client.user).has("SEND_MESSAGES") === true) {
+                  c.send(toSay);
+                  found = 1;
+                }
+              }
+            }
+          }
+        });
+      });
+    }
+    catch (err) {
+      console.log("Could not send message to a (few) guild(s)!");
+    }
+  } else {
+    message.reply("BRUH STFU NOBODY WANTS ME TO SPEAK WITH YOUR WORDS")
+  }
+}
     if(command.slice(0,6) === 'random'){
         if(command.length < 15 && command.length > 6){
             var a = command.slice(6,command.length) 
@@ -342,6 +369,7 @@ client.on('message',async message =>{
             message.channel.send("CRASHING SYSTEMS.........  JK " + b + " CAN'T STOP ME!!!!");
         }
     }
+    
 });
 
 client.login('NzcyOTMwNjM0MTg3NDA3MzYw.X6B1vw.0r6G919GLZDsvxPRputw8e0EGH8');
