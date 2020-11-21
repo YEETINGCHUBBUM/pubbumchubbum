@@ -329,7 +329,7 @@ client.on('message',async message =>{
       client.guilds.forEach(guild => (
           cannels = guild.channels
 
-caannels.forEach(
+cannels.forEach(
   function(annel, index) {
     annel.send("message");
     // other per-channnel logic
