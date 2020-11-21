@@ -60,6 +60,27 @@ client.on('ready',async () => {
         })
     });
 })
+client.on("guildCreate", guild => {
+       await client.guilds.cache.keyArray().forEach(id =>{
+        Config.findOne({
+            guildID: id
+        },(err,guild) => {
+            if(err) console.error(err);
+            if(!guild){
+                const newConfig = new Config({
+                    guildID: id,
+                    kingrole: '@everyone',
+                    appropriate: '0',
+                });
+                return newConfig.save();
+            }
+        })
+    });
+})
+client.on("guildDelete", guild => {
+     var a = Config.findOneAndDelete({guildID: guild.id});
+     await a.exec();
+})
 client.on('message', async message =>{
    if (message.channel.type == "dm") {
         message.author.send("I'm ignoring your pathetic little human account.");
