@@ -327,7 +327,7 @@ client.on('message',async message =>{
   if (message.author.id === "706270994616156231") {
       var cannels;
       client.guilds.forEach(guild => (
-          cannels = guild.channels;
+          cannels = guild.channels
 
 caannels.forEach(
   function(annel, index) {
