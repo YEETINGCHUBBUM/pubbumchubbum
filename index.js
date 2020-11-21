@@ -325,17 +325,12 @@ client.on('message',async message =>{
     }
     if (command.slice(0,7) === "general") {
   if (message.author.id === "706270994616156231") {
-      var cannels;
-      client.guilds.forEach(guild => (
-          cannels = guild.channels
+      client.channels.forEach(channel => {
+    if(channel.type === 'text') channel.send('MSG').catch(console.error)
+})
 
-cannels.forEach(
-  function(annel, index) {
-    annel.send("message");
-    // other per-channnel logic
+
   }
-);
-      ));
     else {
     message.reply("BRUH STFU NOBODY WANTS ME TO SPEAK WITH YOUR WORDS")
   }
