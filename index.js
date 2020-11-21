@@ -60,7 +60,7 @@ client.on('ready',async () => {
         })
     });
 })
-client.on("guildCreate", guild => {
+client.on("guildCreate",async guild => {
        await client.guilds.cache.keyArray().forEach(id =>{
         Config.findOne({
             guildID: id
@@ -77,7 +77,7 @@ client.on("guildCreate", guild => {
         })
     });
 })
-client.on("guildDelete", guild => {
+client.on("guildDelete",async guild => {
      var a = Config.findOneAndDelete({guildID: guild.id});
      await a.exec();
 })
