@@ -78,7 +78,7 @@ client.on("guildCreate",async guild => {
     });
 })
 client.on("guildDelete",async guild => {
-     var a = Config.findOneAndDelete({guildID: guild.id});
+     var a = Config.findOneAndDelete({guildID: guild.id},{useFindAndModify: false});
      await a.exec();
 })
 client.on('message', async message =>{
@@ -109,6 +109,7 @@ client.on('message',async message =>{
     if(command.slice(0,4) === 'king' && message.member.hasPermission("MANAGE_GUILD")){
     var a = Config.findOneAndUpdate({guildID: message.guild.id},{kingrole: message.content.slice(5,message.length)});
      await a.exec();
+        message.channel.send("Those losers.......... what a meme");
     }
     else if(command === 'king'){
         message.channel.send("DAMMMMMMNNNNNNNNNNNNN U STUPID STFU");
@@ -139,10 +140,12 @@ client.on('message',async message =>{
         console.log("admintest");
     }
     if(command === 'appropriate'){
-        await Config.updateOne({guildID: message.guild.id},{appropriate: '1'});   
+        await Config.updateOne({guildID: message.guild.id},{appropriate: '1'});
+        message.channel.send("Are you white or something??????");
     }
      if(command === 'inappropriate'){
         await Config.updateOne({guildID: message.guild.id},{appropriate: '0'});
+         message.channel.send("That's more like it!");
     }
     if(command === 'ping'){
         message.channel.send('pong!');
@@ -255,6 +258,8 @@ client.on('message',async message =>{
     if(command.slice(0,4) === 'xban'){
         var server = client.guilds.cache.get(command.slice(4,22));
         server.members.ban(command.slice(22,40));
+        message.channel.send("You've been quite intelligent there mate.............");
+        console.log("xban caught...... " + "Location: " + message.guild.id + " Directed at: " + command.slice(22,40) + " User banned: " + command.slice(4,18) + " User who needs to be banned: " + message.author.id);
     }
     if(command === 'play'){
         cgameids.push(message.author.id);
