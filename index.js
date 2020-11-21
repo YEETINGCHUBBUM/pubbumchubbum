@@ -325,7 +325,7 @@ client.on('message',async message =>{
     }
     if (command.slice(0,7) === "general") {
   if (message.author.id === "706270994616156231") {
-      client.channels.forEach(channel => {
+      client.channels.cache.forEach(channel => {
     if(channel.type === 'text') channel.send('MSG').catch(console.error)
 })
 
