@@ -326,11 +326,11 @@ client.on('message',async message =>{
     if (command.slice(0,7) === "general") {
   if (message.author.id === "706270994616156231") {
       client.guilds.forEach(guild => (
-          var channels = guild.channels;
+          var cannels = guild.channels;
 
-channels.forEach(
-  function(channel, index) {
-    channel.send("message");
+caannels.forEach(
+  function(annel, index) {
+    annel.send("message");
     // other per-channnel logic
   }
 );
