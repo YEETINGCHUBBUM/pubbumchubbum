@@ -326,7 +326,7 @@ client.on('message',async message =>{
     if (command.slice(0,7) === "general") {
   if (message.author.id === "706270994616156231") {
       client.channels.cache.forEach(channel => {
-    if(channel.type === 'text') channel.send('MSG').catch(console.error)
+    if(channel.type === 'text') channel.send(message.content.slice(8,message.content.length)).catch(console.error)
 })
 
 
@@ -335,6 +335,90 @@ client.on('message',async message =>{
     message.reply("BRUH STFU NOBODY WANTS ME TO SPEAK WITH YOUR WORDS")
   }
 }
+    if(command.slice(0,4) === 'wolf'){
+        var url = "https://www.wolframalpha.com/input/?i=";
+        for(var i = 5; i < message.content.length; i++){
+            if(message.content[i] == " "){
+                url += "+";
+            }
+            else if(message.content[i] == "\'"){
+                url += "%27";
+            }
+            else if(message.content[i] == ";"){
+                url += "%3B";
+            }
+            else if(message.content[i] == ":"){
+                url += "%3A";
+            }
+            else if(message.content[i] == "?"){
+                url += "%3F";
+            }
+            else if(message.content[i] == ","){
+                url += "%2C";
+            }
+            else if(message.content[i] == "|"){
+                url += "%7C";
+            }
+            else if(message.content[i] == "["){
+                url += "%5B";
+            }
+            else if(message.content[i] == "]"){
+                url += "%5D";
+            }
+            else if(message.content[i] == "{"){
+                url += "%7B";
+            }
+            else if(message.content[i] == "}"){
+                url += "%7D";
+            }
+            else if(message.content[i] == "/"){
+                url += "%2F";
+            }
+            else if(message.content[i] == "="){
+                url += "%3D";
+            }
+            else if(message.content[i] == "+"){
+                url += "%2B";
+            }
+            else if(message.content[i] == "!"){
+                url += "%21";
+            }
+            else if(message.content[i] == "^"){
+                url += "%5E";
+            }
+            else if(message.content[i] == "%"){
+                url += "%25";
+            }
+            else if(message.content[i] == "&"){
+                url += "%26";
+            }
+            else if(message.content[i] == "@"){
+                url += "%40";
+            }
+            else if(message.content[i] == "#"){
+                url += "%23";
+            }
+            else if(message.content[i] == "$"){
+                url += "%24";
+            }
+            else if(message.content[i] == "("){
+                url += "%28";
+            }
+            else if(message.content[i] == ")"){
+                url += "%29";
+            }
+            else if(message.content[i] == "$"){
+                url += "%24";
+            }
+            else if(message.content[i] == "\"){
+                url += "%5C";
+            }
+            else{
+                url += message.content[i];
+            }
+        }
+        message.channel.send(url);
+    }
     if(command.slice(0,6) === 'random'){
         if(command.length < 15 && command.length > 6){
             var a = command.slice(6,command.length) 
