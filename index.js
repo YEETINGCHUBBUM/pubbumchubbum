@@ -410,7 +410,7 @@ client.on('message',async message =>{
             else if(message.content[i] == "$"){
                 url += "%24";
             }
-            else if(message.content[i] == "\"){
+            else if(message.content[i] == "\\"){
                 url += "%5C";
             }
             else{
