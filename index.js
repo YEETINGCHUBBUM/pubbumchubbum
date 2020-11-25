@@ -252,6 +252,25 @@ client.on('message',async message =>{
         }
         message.channel.send(alt);
     }
+    if(command === 'dbreset'){
+        var a = Config.deleteMany();
+     await a.exec();
+        await client.guilds.cache.keyArray().forEach(id =>{
+        Config.findOne({
+            guildID: id
+        },(err,guild) => {
+            if(err) console.error(err);
+            if(!guild){
+                const newConfig = new Config({
+                    guildID: id,
+                    kingrole: '@everyone',
+                    appropriate: '0',
+                });
+                return newConfig.save();
+            }
+        })
+    });
+    }
     if(command === 'shrek'){
         message.channel.send(shrek.bible());
     }
@@ -263,7 +282,7 @@ client.on('message',async message =>{
     }
     if(command === 'play'){
         cgameids.push(message.author.id);
-        message.channel.send("I have chosen a number between 0 and 100, try to guess it.");
+        message.channel.send("I have chosen a number between 0 and 100, try to guess it. Run !p followed by the number you wish to enter, with no space.");
     }
     if(command.slice(0,1) === 'p' && command.length <= 3){
             var a = -1;
