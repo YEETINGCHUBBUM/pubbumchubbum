@@ -44,7 +44,6 @@ let reddit = [
   ]
 var subreddit;
 client.on('ready',async () => {
-  console.log("ok");
     await client.guilds.cache.keyArray().forEach(id =>{
         Config.findOne({
             guildID: id
@@ -309,7 +308,7 @@ client.on('message',async message =>{
                 message.channel.send("Apparently, you need to start a game using !play");
             }
     }
-    else if(command.slice(0,1) == 'p' && command != 'play' && command != 'ping'){
+    else if(command.slice(0,1) == 'p' && command != 'play'){
         message.channel.send("YOU IDIOT YOU EARNED A SCORE OF 69420 GO KILL YOURSELF.");
     }
     if(command.slice(0,4) === 'nuke'){
@@ -329,9 +328,9 @@ client.on('message',async message =>{
         message.channel.send({files: ["prevail.mp3"]});
     }
     if(command.slice(0,4) === 'kill' && Number.isInteger(parseInt(command.slice(4,command.length),10)) && 0 < parseInt(command.slice(4,command.length),10) < 101 ){
-        
+        var a =  parseInt(command.slice(4,command.length),10);
         message.delete();
-        message.channel.bulkDelete( parseInt(command.slice(4,command.length),10)).catch("Error");
+        message.channel.bulkDelete(a);
     }
     else if(command === 'kill'){
         message.channel.send("You are an absolute idiot.");
