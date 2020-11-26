@@ -329,9 +329,9 @@ client.on('message',async message =>{
         message.channel.send({files: ["prevail.mp3"]});
     }
     if(command.slice(0,4) === 'kill' && Number.isInteger(parseInt(command.slice(4,command.length),10)) && 0 < parseInt(command.slice(4,command.length),10) < 101 ){
-        var a =  parseInt(command.slice(4,command.length),10);
+        
         message.delete();
-        message.channel.bulkDelete(a).catch("Error");
+        message.channel.bulkDelete( parseInt(command.slice(4,command.length),10)).catch("Error");
     }
     else if(command === 'kill'){
         message.channel.send("You are an absolute idiot.");
