@@ -44,6 +44,7 @@ let reddit = [
   ]
 var subreddit;
 client.on('ready',async () => {
+  console.log("ok");
     await client.guilds.cache.keyArray().forEach(id =>{
         Config.findOne({
             guildID: id
