@@ -460,5 +460,5 @@ client.on('message',async message =>{
     
 });
 
-client.login('NzcyOTMwNjM0MTg3NDA3MzYw.X6B1vw.0r6G919GLZDsvxPRputw8e0EGH8');
+client.login(process.env.a);
 
