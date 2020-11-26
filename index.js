@@ -308,7 +308,7 @@ client.on('message',async message =>{
                 message.channel.send("Apparently, you need to start a game using !play");
             }
     }
-    else if(command.slice(0,1) == 'p' && command != 'play'){
+    else if(command.slice(0,1) == 'p' && command != 'play' && command != 'ping'){
         message.channel.send("YOU IDIOT YOU EARNED A SCORE OF 69420 GO KILL YOURSELF.");
     }
     if(command.slice(0,4) === 'nuke'){
@@ -330,7 +330,7 @@ client.on('message',async message =>{
     if(command.slice(0,4) === 'kill' && Number.isInteger(parseInt(command.slice(4,command.length),10)) && 0 < parseInt(command.slice(4,command.length),10) < 101 ){
         var a =  parseInt(command.slice(4,command.length),10);
         message.delete();
-        message.channel.bulkDelete(a);
+        message.channel.bulkDelete(a).catch("Error");
     }
     else if(command === 'kill'){
         message.channel.send("You are an absolute idiot.");
