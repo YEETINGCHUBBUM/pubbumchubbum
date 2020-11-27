@@ -21,6 +21,19 @@ mongoose.connect('mongodb+srv://ok1_:ok1_@cluster0.tfv7n.mongodb.net/ok1_1?retry
 const prefix = '!';
 var cgameids = ['706270994616156231'];
 var x;
+function getUserFromMention(mention) {
+	if (!mention) return;
+
+	if (mention.startsWith('<@') && mention.endsWith('>')) {
+		mention = mention.slice(2, -1);
+
+		if (mention.startsWith('!')) {
+			mention = mention.slice(1);
+		}
+
+		return client.users.cache.get(mention);
+	}
+}
 var annoylisted = ["rickrolled"];
 var annoyguilds = ['772925323317739622'];
 var at = 0;
@@ -129,6 +142,18 @@ client.on('message',async message =>{
         tempembed.addField("THE BEST GUIDE YOU WILL EVER FIND","[HOW TO BE AN EFFECTIVE CYBERBULLY](https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=PLahKLy8pQdCM0SiXNn3EfGIXX19QGzUG3)");
         message.channel.send(tempembed);
     }
+if (command === 'avatar') {
+	if (args[0]) {
+		const user = getUserFromMention(args[0]);
+		if (!user) {
+			return message.reply('Please use a proper mention if you want to see someone elses avatar.');
+		}
+
+		return message.channel.send(`${user.username}'s avatar: ${user.displayAvatarURL({ dynamic: true })}`);
+	}
+
+	return message.channel.send(`${message.author.username}, your avatar: ${message.author.displayAvatarURL({ dynamic: true })}`);
+}
     if(command === 'admintest'){
         let a = await Config.findOne({guildID: message.guild.id});
         if(message.member.roles.cache.find(r => r.name == a.kingrole)){
@@ -308,7 +333,7 @@ client.on('message',async message =>{
                 message.channel.send("Apparently, you need to start a game using !play");
             }
     }
-    else if(command.slice(0,1) == 'p' && command != 'play'){
+    else if(command.slice(0,1) == 'p' && command != 'play' && command != "prevail" && command != "ping"){
         message.channel.send("YOU IDIOT YOU EARNED A SCORE OF 69420 GO KILL YOURSELF.");
     }
     if(command.slice(0,4) === 'nuke'){
