@@ -58,7 +58,7 @@ let reddit = [
 var subreddit;
 client.on('ready',async () => {
 	client.channels.cache.forEach(channel => {
-    if(channel.type === 'text') channel.send("Sorry everyone, the bot just restarted. All the nonpermanent features, such as games, have been reset. No need to worry about the settings.").catch(console.error)}
+    if(channel.type === 'text') channel.send("Sorry everyone, the bot just restarted. All the nonpermanent features, such as games, have been reset. No need to worry about the settings.").catch(console.error});
     await client.guilds.cache.keyArray().forEach(id =>{
         Config.findOne({
             guildID: id
