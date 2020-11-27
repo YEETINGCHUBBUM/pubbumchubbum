@@ -151,13 +151,13 @@ if (command === 'avatar') {
 		const tempembed = new Discord.MessageEmbed;
 		tempembed.setColor('#ff0000');
 		tempembed.addField('OOOOOOOOH PERVERT ALERTTTTTTT', '\u200b');
-		tempembed.attachFiles(user.displayAvatarURL({ dynamic: true })});
+		tempembed.attachFiles(user.displayAvatarURL({ dynamic: true }));
 		return message.channel.send(tempembed);
 	}
 	const tempembed = new Discord.MessageEmbed;
 		tempembed.setColor('#ff0000');
 		tempembed.addField('NARCISSIST ALERT!!!!!!!!!', '\u200b');
-		tempembed.attachFiles(message.author.displayAvatarURL({ dynamic: true })});
+		tempembed.attachFiles(message.author.displayAvatarURL({ dynamic: true }));
 		return message.channel.send(tempembed);
 }
     if(command === 'admintest'){
