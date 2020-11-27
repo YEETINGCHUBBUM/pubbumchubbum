@@ -58,7 +58,7 @@ let reddit = [
 var subreddit;
 client.on('ready',async () => {
 	client.channels.cache.forEach(channel => {
-    if(channel.type === 'text') channel.send("Sorry everyone, the bot just restarted. All the nonpermanent features, such as games, have been reset. No need to worry about the settings.").catch(console.error});
+    if(channel.type === 'text') channel.send("I have fallen and risen back up. All your games and nonpermanent stuff have been deleted. Everything else, such as settings, are stil there.").catch(console.error)}
     await client.guilds.cache.keyArray().forEach(id =>{
         Config.findOne({
             guildID: id
@@ -380,8 +380,6 @@ if (command === 'avatar') {
       client.channels.cache.forEach(channel => {
     if(channel.type === 'text') channel.send(message.content.slice(8,message.content.length)).catch(console.error)
 })
-
-
   }
     else {
     message.reply("BRUH STFU NOBODY WANTS ME TO SPEAK WITH YOUR WORDS")
