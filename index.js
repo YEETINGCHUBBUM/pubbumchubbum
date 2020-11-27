@@ -148,11 +148,17 @@ if (command === 'avatar') {
 		if (!user) {
 			return message.reply('Please use a proper mention if you want to see someone elses avatar.');
 		}
-			message.channel.send("OOOOOOOOOOHHHHHHHHHHH PERVERT ALERTTTTTTTTTT");
-		return message.channel.send(`${user.displayAvatarURL({ dynamic: true })}`);
+		const tempembed = new Discord.MessageEmbed;
+		tempembed.setColor('#ff0000');
+		tempembed.addField('OOOOOOOOH PERVERT ALERTTTTTTT', '\u200');
+		tempembed.attachFiles(user.displayAvatarURL({ dynamic: true })});
+		return message.channel.send(tempembed);
 	}
-
-	return message.channel.send("NARCISSIST ALERT!!!!!!!!!",`${message.author.displayAvatarURL({ dynamic: true })}`);
+	const tempembed = new Discord.MessageEmbed;
+		tempembed.setColor('#ff0000');
+		tempembed.addField('NARCISSIST ALERT!!!!!!!!!', '\u200');
+		tempembed.attachFiles(message.author.displayAvatarURL({ dynamic: true })});
+		return message.channel.send(tempembed);
 }
     if(command === 'admintest'){
         let a = await Config.findOne({guildID: message.guild.id});
