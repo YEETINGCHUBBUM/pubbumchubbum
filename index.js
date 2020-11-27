@@ -58,8 +58,8 @@ let reddit = [
 var subreddit;
 client.on('ready',async () => {
 	client.channels.cache.forEach(channel => {
-    if(channel.type === 'text') channel.send("I have fallen and risen back up. All your games and nonpermanent stuff have been deleted. Everything else, such as settings, are stil there.").catch(console.error)}
-    )await client.guilds.cache.keyArray().forEach(id =>{
+    if(channel.type === 'text') channel.send("I have fallen and risen back up. All your games and nonpermanent stuff have been deleted. Everything else, such as settings, are stil there.").catch(console.error)})
+	await client.guilds.cache.keyArray().forEach(id =>{
         Config.findOne({
             guildID: id
         },(err,guild) => {
