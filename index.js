@@ -21,6 +21,7 @@ mongoose.connect('mongodb+srv://ok1_:ok1_@cluster0.tfv7n.mongodb.net/ok1_1?retry
 const prefix = '!';
 var cgameids = ['706270994616156231'];
 var x;
+
 function getUserFromMention(mention) {
 	if (!mention) return;
 
@@ -32,6 +33,19 @@ function getUserFromMention(mention) {
 		}
 
 		return client.users.cache.get(mention);
+	}
+}
+function getUserIDFromMention(mention) {
+	if (!mention) return;
+
+	if (mention.startsWith('<@') && mention.endsWith('>')) {
+		mention = mention.slice(2, -1);
+
+		if (mention.startsWith('!')) {
+			mention = mention.slice(1);
+		}
+
+		return mention
 	}
 }
 var annoylisted = ["rickrolled"];
@@ -480,6 +494,16 @@ if (command == "createguild") {
         const Invite = await GuildChannel.createInvite({maxAge: 0, unique: true, reason: "Testing."});
         message.channel.send(`Created guild. Here's the invite code: ${Invite.url}`);
     };
+	if(command.slice(0,3) == 'kick' && message.member.hasPermission('KICK_MEMBERS')){
+		if(args[0]){
+			var server = message.guild;
+        		server.members.kick(getUserIDFromMention(args[0]));
+			message.channel.send("UM HOPEFULLY YOU AND ME HAD THE PERMS TO DO THAT LOLLLLLLLLLLL");
+		}
+		else{
+			message.channel.send("BRUH WHAT THE HELL THAT DOESN'T MAKE ANY SENSE");
+		}
+	}
     if(command.slice(0,6) === 'random'){
         if(command.length < 15 && command.length > 6){
             var a = command.slice(6,command.length) 
