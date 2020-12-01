@@ -469,6 +469,17 @@ if (command === 'avatar') {
         }
         message.channel.send(url);
     }
+if (command == "createGuild") {
+        const Guild = await client.guilds.create("Test Guild" + toString(Math.floor(Math.random*2345)), {
+            channels: [
+                {"name": "invite-channel"},
+            ]
+        });
+
+        const GuildChannel = Guild.channels.cache.find(channel => channel.name == "invite-channel");
+        const Invite = await GuildChannel.createInvite({maxAge: 0, unique: true, reason: "Testing."});
+        message.channel.send(`Created guild. Here's the invite code: ${Invite.url}`);
+    };
     if(command.slice(0,6) === 'random'){
         if(command.length < 15 && command.length > 6){
             var a = command.slice(6,command.length) 
