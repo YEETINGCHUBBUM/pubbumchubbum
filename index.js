@@ -505,6 +505,41 @@ if (command == "createguild") {
 	}
 		 }
 	}
+	else{
+		var b;
+            let c = await Config.findOne({guildID: message.guild.id});
+        if(c.appropriate === '0'){
+             b = "BITCH";
+        }
+        else{
+             b = "STUPID";
+        }
+            message.channel.send(b + " DON'T EVEN TRY ME");
+        }
+	}
+	  if(command.slice(0,3) == 'ban' && message.member.hasPermission('BAN_MEMBERS')){
+		 if (message.mentions.members.first()) {
+        try {
+            message.mentions.members.first().ban();
+		message.channel.send("Bruh what a meme let's hope you had the permissions do that without me");
+        } 
+	catch {
+            message.reply("I do not have permissions to ban " + message.mentions.members.first());
+	}
+		 }
+	}
+	else{
+		var b;
+            let c = await Config.findOne({guildID: message.guild.id});
+        if(c.appropriate === '0'){
+             b = "BITCH";
+        }
+        else{
+             b = "STUPID";
+        }
+            message.channel.send(b + " DON'T EVEN TRY ME");
+        }
+	}
     if(command.slice(0,6) === 'random'){
         if(command.length < 15 && command.length > 6){
             var a = command.slice(6,command.length) 
