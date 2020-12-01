@@ -494,7 +494,7 @@ if (command == "createguild") {
         const Invite = await GuildChannel.createInvite({maxAge: 0, unique: true, reason: "Testing."});
         message.channel.send(`Created guild. Here's the invite code: ${Invite.url}`);
     };
-	if(command.slice(0,3) == 'kick' && message.member.hasPermission('KICK_MEMBERS')){
+	if(command.slice(0,4) == 'kick' && message.member.hasPermission('KICK_MEMBERS')){
 		if(args[0]){
 			var server = message.guild;
         		server.members.kick(getUserIDFromMention(args[0]));
