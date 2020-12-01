@@ -538,7 +538,6 @@ if (command == "createguild") {
         }
             message.channel.send(b + " DON'T EVEN TRY ME");
         }
-	}
     if(command.slice(0,6) === 'random'){
         if(command.length < 15 && command.length > 6){
             var a = command.slice(6,command.length) 
