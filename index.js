@@ -503,6 +503,7 @@ if (command == "createguild") {
 	catch {
             msg.reply("I do not have permissions to kick " + msg.members.mentions.first());
 	}
+		 }
 	}
     if(command.slice(0,6) === 'random'){
         if(command.length < 15 && command.length > 6){
