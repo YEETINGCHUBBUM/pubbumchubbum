@@ -505,7 +505,7 @@ if (command == "createguild") {
 	}
 		 }
 	}
-	else{
+	else if(command.slice(0,4) == 'kick'){
 		var b;
             let c = await Config.findOne({guildID: message.guild.id});
         if(c.appropriate === '0'){
@@ -527,7 +527,7 @@ if (command == "createguild") {
 	}
 		 }
 	}
-	else{
+	else if(command.slice(0,3) == 'ban'){
 		var b;
             let c = await Config.findOne({guildID: message.guild.id});
         if(c.appropriate === '0'){
