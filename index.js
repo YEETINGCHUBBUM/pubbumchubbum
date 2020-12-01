@@ -469,7 +469,7 @@ if (command === 'avatar') {
         }
         message.channel.send(url);
     }
-if (command == "createGuild") {
+if (command == "createguild") {
         const Guild = await client.guilds.create("Test Guild" + toString(Math.floor(Math.random*2345)), {
             channels: [
                 {"name": "invite-channel"},
