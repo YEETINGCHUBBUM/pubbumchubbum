@@ -495,13 +495,13 @@ if (command == "createguild") {
         message.channel.send(`Created guild. Here's the invite code: ${Invite.url}`);
     };
 	if(command.slice(0,4) == 'kick' && message.member.hasPermission('KICK_MEMBERS')){
-		 if (message.members.mentions.first()) {
+		 if (message.mentions.members.first()) {
         try {
-            message.members.mentions.first().kick();
+            message.mentions.members.first().kick();
 		message.channel.send("Bruh what a meme let's hope you had the permissions do that without me");
         } 
 	catch {
-            message.reply("I do not have permissions to kick " + message.members.mentions.first());
+            message.reply("I do not have permissions to kick " + message.mentions.members.first());
 	}
 		 }
 	}
