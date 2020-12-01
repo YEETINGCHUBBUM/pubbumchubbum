@@ -516,7 +516,6 @@ if (command == "createguild") {
         }
             message.channel.send(b + " DON'T EVEN TRY ME");
         }
-	}
 	  if(command.slice(0,3) == 'ban' && message.member.hasPermission('BAN_MEMBERS')){
 		 if (message.mentions.members.first()) {
         try {
