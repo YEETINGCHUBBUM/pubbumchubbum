@@ -45,7 +45,7 @@ function getUserIDFromMention(mention) {
 			mention = mention.slice(1);
 		}
 
-		return mention
+		return mention;
 	}
 }
 var annoylisted = ["rickrolled"];
@@ -499,6 +499,7 @@ if (command == "createguild") {
 			var server = message.guild;
         		server.members.kick(getUserIDFromMention(args[0]));
 			message.channel.send("UM HOPEFULLY YOU AND ME HAD THE PERMS TO DO THAT LOLLLLLLLLLLL");
+			console.log(getUserIDFromMention(args[0]));
 		}
 		else{
 			message.channel.send("BRUH WHAT THE HELL THAT DOESN'T MAKE ANY SENSE");
