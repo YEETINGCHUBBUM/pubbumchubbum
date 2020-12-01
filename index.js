@@ -10,7 +10,8 @@ const client = new Discord.Client();
 const config = new mongoose.Schema({
     guildID: String,
     kingrole: String,
-    appropriate: String
+    appropriate: String,
+    notification: String
 });
 var Config = mongoose.model('one', config);
 mongoose.connect('mongodb+srv://ok1_:ok1_@cluster0.tfv7n.mongodb.net/ok1_1?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true}, (err) => {
@@ -72,7 +73,8 @@ let reddit = [
 var subreddit;
 client.on('ready',async () => {
 	client.channels.cache.forEach(channel => {
-    if(channel.type === 'text') channel.send("I have fallen and risen back up. All your games and nonpermanent stuff have been deleted. Everything else, such as settings, are stil there.").catch(console.error)})
+		let a = await Config.findOne({guildID: message.guild.id});
+    if(channel.type === 'text' && a.notification == '0') channel.send("I have fallen and risen back up. All your games and nonpermanent stuff have been deleted. Everything else, such as settings, are stil there.").catch(console.error)})
 	await client.guilds.cache.keyArray().forEach(id =>{
         Config.findOne({
             guildID: id
@@ -83,6 +85,7 @@ client.on('ready',async () => {
                     guildID: id,
                     kingrole: '@everyone',
                     appropriate: '0',
+		    notification: '0'
                 });
                 return newConfig.save();
             }
@@ -100,6 +103,7 @@ client.on("guildCreate",async guild => {
                     guildID: id,
                     kingrole: '@everyone',
                     appropriate: '0',
+		    notification: '0'
                 });
                 return newConfig.save();
             }
@@ -192,6 +196,14 @@ if (command === 'avatar') {
     }
      if(command === 'inappropriate'){
         await Config.updateOne({guildID: message.guild.id},{appropriate: '0'});
+         message.channel.send("That's more like it!");
+    }
+	 if(command === 'unnotify'){
+        await Config.updateOne({guildID: message.guild.id},{notifcation: '1'});
+        message.channel.send("Are you white or something??????");
+    }
+     if(command === 'notify'){
+        await Config.updateOne({guildID: message.guild.id},{notification: '0'});
          message.channel.send("That's more like it!");
     }
     if(command === 'ping'){
@@ -312,6 +324,7 @@ if (command === 'avatar') {
                     guildID: id,
                     kingrole: '@everyone',
                     appropriate: '0',
+		    notification: '0',
                 });
                 return newConfig.save();
             }
