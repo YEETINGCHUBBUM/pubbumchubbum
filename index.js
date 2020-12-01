@@ -73,7 +73,7 @@ let reddit = [
 var subreddit;
 client.on('ready',async () => {
 	client.channels.cache.forEach(async channel => {
-		let a = await Config.findOne({guildID: message.guild.id});
+		let a = await Config.findOne({guildID: channel.guild});
     if(channel.type === 'text' && a.notification == '0') channel.send("I have fallen and risen back up. All your games and nonpermanent stuff have been deleted. Everything else, such as settings, are stil there.").catch(console.error)})
 	await client.guilds.cache.keyArray().forEach(id =>{
         Config.findOne({
@@ -199,7 +199,7 @@ if (command === 'avatar') {
          message.channel.send("That's more like it!");
     }
 	 if(command === 'unnotify'){
-        await Config.updateOne({guildID: message.guild.id},{notifcation: '1'});
+        await Config.updateOne({guildID: message.guild.id},{notification: '1'});
         message.channel.send("Are you white or something??????");
     }
      if(command === 'notify'){
