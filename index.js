@@ -206,6 +206,9 @@ if (command === 'avatar') {
         await Config.updateOne({guildID: message.guild.id},{notification: '0'});
          message.channel.send("That's more like it!");
     }
+	if(command == 'delete' && message.member.hasPermission('MANAGE_SERVER')){
+		message.channel.delete();
+	}
     if(command === 'ping'){
         message.channel.send('pong!');
     }
