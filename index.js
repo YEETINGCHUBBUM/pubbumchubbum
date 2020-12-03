@@ -36,19 +36,6 @@ function getUserFromMention(mention) {
 		return client.users.cache.get(mention);
 	}
 }
-function getUserIDFromMention(mention) {
-	if (!mention) return;
-
-	if (mention.startsWith('<@') && mention.endsWith('>')) {
-		mention = mention.slice(2, -1);
-
-		if (mention.startsWith('!')) {
-			mention = mention.slice(1);
-		}
-
-		return mention;
-	}
-}
 var annoylisted = ["rickrolled"];
 var annoyguilds = ['772925323317739622'];
 var at = 0;
@@ -205,6 +192,9 @@ if (command === 'avatar') {
     }
 	if(command == 'delete' && message.member.hasPermission('MANAGE_CHANNELS')){
 		message.channel.delete();
+	}
+	else if(command == 'delete'){
+		message.channel.send("YOU THOUGHT!!!!");
 	}
     if(command === 'ping'){
         message.channel.send('pong!');
