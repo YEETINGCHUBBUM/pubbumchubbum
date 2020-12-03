@@ -120,9 +120,6 @@ client.on('message', async message =>{
     }
 })
 client.on('message',async message =>{
-    if(message.author.id === '753405210185039912'){
-        message.delete();
-    }
    at = 0;
    if(!message.author.bot){
     at = 0;
@@ -206,7 +203,7 @@ if (command === 'avatar') {
         await Config.updateOne({guildID: message.guild.id},{notification: '0'});
          message.channel.send("That's more like it!");
     }
-	if(command == 'delete' && message.member.hasPermission('MANAGE_SERVER')){
+	if(command == 'delete' && message.member.hasPermission('MANAGE_CHANNELS')){
 		message.channel.delete();
 	}
     if(command === 'ping'){
