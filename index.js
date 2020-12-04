@@ -5,6 +5,7 @@ const snekfetch = require('snekfetch');
 const mongoose = require('mongoose');
 const aoq = require('./aoq.js');
 const shrek = require('./shrek.js');
+const ytdl = require('ytdl-core');
 const client = new Discord.Client();
 
 const config = new mongoose.Schema({
