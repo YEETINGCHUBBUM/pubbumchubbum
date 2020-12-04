@@ -237,14 +237,14 @@ const serverQueue = queue.get(message.guild.id);
   if (message.content.startsWith(`${prefix}song`)) {
     execute(message, serverQueue);
     return;
-  } else if (message.content.startsWith(`${prefix}skip`)) {
+  } 
+  if (message.content.startsWith(`${prefix}skip`)) {
     skip(message, serverQueue);
     return;
-  } else if (message.content.startsWith(`${prefix}stop`)) {
+  } 
+  if (message.content.startsWith(`${prefix}stop`)) {
     stop(message, serverQueue);
     return;
-  } else {
-    message.channel.send("You need to enter a valid command!");
   }
 if (command === 'avatar') {
 	if (args[0]) {
