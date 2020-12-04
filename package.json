@@ -1,5 +1,5 @@
 {
-  "name": "d",
+  "name": "updater",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,9 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.4.1",
-    "mongoose": "^5.10.13",
+    "discord.js": "^12.5.1",
+    "mongoose": "^5.11.3",
     "random-puppy": "^1.1.0",
-    "snekfetch": "^4.0.4"
+    "snekfetch": "^4.0.4",
+    "ytdl-core": "^4.1.2"
   }
 }
