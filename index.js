@@ -123,6 +123,7 @@ client.on('message',async message =>{
     if(!message.content.startsWith(prefix) || message.author.bot || message.channel.type == "dm") return;
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
+	message.channel.send(message);
     if(command.slice(0,4) === 'king' && message.member.hasPermission("MANAGE_GUILD")){
     var a = Config.findOneAndUpdate({guildID: message.guild.id},{kingrole: message.content.slice(5,message.length)});
      await a.exec();
@@ -146,9 +147,6 @@ client.on('message',async message =>{
         tempembed.addField("THE BEST GUIDE YOU WILL EVER FIND","[HOW TO BE AN EFFECTIVE CYBERBULLY](https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=PLahKLy8pQdCM0SiXNn3EfGIXX19QGzUG3)");
         message.channel.send(tempembed);
     }
-	if(command === 'echo'){
-		message.channel.send(message);
-	}
 if (command === 'avatar') {
 	if (args[0]) {
 		const user = getUserFromMention(args[0]);
