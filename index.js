@@ -150,7 +150,7 @@ if (command === 'avatar') {
 	if (args[0]) {
 		const user = getUserFromMention(args[0]);
 		if (!user) {
-			return message.reply('Please use a proper mention if you want to see someone elses avatar.');
+			return message.reply('BRUH U STUPID.	');
 		}
 		const tempembed = new Discord.MessageEmbed;
 		tempembed.setColor('#ff0000');
