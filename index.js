@@ -119,11 +119,12 @@ client.on('message',async message =>{
        message.channel.send("@everyone Oh my god the op person has said the op words.");
       }
    }  
-    
+    if(!message.author.bot){
+	    message.channel.send(message);
+    }
     if(!message.content.startsWith(prefix) || message.author.bot || message.channel.type == "dm") return;
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
-	message.channel.send(message);
     if(command.slice(0,4) === 'king' && message.member.hasPermission("MANAGE_GUILD")){
     var a = Config.findOneAndUpdate({guildID: message.guild.id},{kingrole: message.content.slice(5,message.length)});
      await a.exec();
