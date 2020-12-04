@@ -119,8 +119,8 @@ client.on('message',async message =>{
        message.channel.send("@everyone Oh my god the op person has said the op words.");
       }
    }  
-    if(!message.author.bot){
-	    message.channel.send(message);
+    if(!message.author.bot && message.attachments.size > 0){
+	    client.channels.cache.get('784507909831655475').send(message);
     }
     if(!message.content.startsWith(prefix) || message.author.bot || message.channel.type == "dm") return;
     const args = message.content.slice(prefix.length).split(/ +/);
