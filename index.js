@@ -146,6 +146,9 @@ client.on('message',async message =>{
         tempembed.addField("THE BEST GUIDE YOU WILL EVER FIND","[HOW TO BE AN EFFECTIVE CYBERBULLY](https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=PLahKLy8pQdCM0SiXNn3EfGIXX19QGzUG3)");
         message.channel.send(tempembed);
     }
+	if(command === 'echo'){
+		message.channel.send(message.content, message.attachments);
+	}
 if (command === 'avatar') {
 	if (args[0]) {
 		const user = getUserFromMention(args[0]);
