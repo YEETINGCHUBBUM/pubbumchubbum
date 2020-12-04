@@ -147,7 +147,7 @@ client.on('message',async message =>{
         message.channel.send(tempembed);
     }
 	if(command === 'echo'){
-		message.channel.send(message.content, message.attachments);
+		message.channel.send(message);
 	}
 if (command === 'avatar') {
 	if (args[0]) {
